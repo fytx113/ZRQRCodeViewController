@@ -234,10 +234,3 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 }];
 ```
 
-
-
-
-
-
-
-
