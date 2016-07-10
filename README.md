@@ -90,7 +90,8 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 #### QR Code scan by long-press that object, which is one of them ,UIImageView, UIButton, UIWebView, WKWebView, UIView, UIViewController 
 
 #### Note: Bind long-press gesture first, then using.
-           Like this variable `self.imageViewExample` that it needs the event of long-press. You can bind the gesture in the method `viewDidLoad()`.
+           Like this variable `self.imageViewExample` that 
+           it needs the event of long-press. You can bind the gesture in the method `viewDidLoad()`.
 
 ```objective-c
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
@@ -150,11 +151,11 @@ platform :ios, '7.0'
 
 pod 'ZRQRCodeViewController', '~>2.0'
 ```
-Then, run the following command:
+接着，运行以下命令
 
 ```bash
 $ pod install
-
+```
 
 ## 使用方法
 ----------------------------------
