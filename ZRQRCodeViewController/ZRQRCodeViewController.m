@@ -13,6 +13,9 @@
 #import "ZRQRCodeViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ZRAlertController.h"
+#import <WebKit/WebKit.h>
+#import "ZRAudio.h"
+
 
 static MyBlockCompletion recognizeCompletion;
 static MyActionSheetCompletion actionSheetCompletion;
@@ -21,8 +24,8 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 @interface ZRQRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-    AVCaptureSession * session;   //输入输出的中间桥梁
-    UIButton * torchBtn;          //开灯关灯
+    AVCaptureSession * session;
+    UIButton * torchBtn;
 }
 
 @property (nonatomic, strong) NSTimer *scanTimer;
@@ -31,6 +34,8 @@ static MyActionSheetCompletion actionSheetCompletion;
 @property (nonatomic, assign) CGRect captureRectArea;
 @property (nonatomic, strong) CIDetector *detector;
 @property (nonatomic, strong) NSArray *qrCodeActionSheets;
+
+@property (nonatomic, strong) ZRAudio *playSound;
 
 @property (nonatomic, strong) UIViewController *lastController;//The last controller
 @end
@@ -106,7 +111,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 }
 
 /*
- * Extract QR Code by Long press object , which maybe is UIImageView, UILabel, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
+ * Extract QR Code by Long press object , which maybe is UIImageView, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
  **/
 - (void)extractQRCodeByLongPressViewController:(UIViewController *)viewController Object:(id)object completion:(MyBlockCompletion)completion
 {
@@ -164,9 +169,40 @@ static MyActionSheetCompletion actionSheetCompletion;
     self.lastController = viewController;
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(extractQRCodeByLongPress:)];
     if ([object isKindOfClass:[UIImageView class]]) {
+        
         UIImageView *imgView = (UIImageView *)object;
         imgView.userInteractionEnabled = YES;
         [imgView addGestureRecognizer:longPressGesture];
+    } else if ([object isKindOfClass:[UIButton class]]) {
+        
+        UIButton *button = (UIButton *)object;
+        button.userInteractionEnabled = YES;
+        [button addGestureRecognizer:longPressGesture];
+    } else if ([object isKindOfClass:[UIWebView class]]) {
+        
+        UIWebView *webView = (UIWebView *)object;
+        webView.userInteractionEnabled = YES;
+        [webView addGestureRecognizer:longPressGesture];
+    } else if ([object isKindOfClass:[WKWebView class]]) {
+        
+        WKWebView *webView = (WKWebView *)object;
+        webView.userInteractionEnabled = YES;
+        [webView addGestureRecognizer:longPressGesture];
+    } else if ([object isKindOfClass:[UIView class]]) {
+        
+        UIView *lview = (UIView *)object;
+        lview.userInteractionEnabled = YES;
+        [lview addGestureRecognizer:longPressGesture];
+    } else if ([object isKindOfClass:[UIViewController class]]) {
+        
+        UIViewController *viewV = (UIViewController *)object;
+        viewV.view.userInteractionEnabled = YES;
+        [viewV.view addGestureRecognizer:longPressGesture];
+    } else {
+        
+        if (recognizeCompletion) {
+            recognizeCompletion(@"Can not support other type of object! ");
+        }
     }
 }
 
@@ -219,13 +255,13 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //1.配置头部和底部
+    //1.Config UI part of head and bottom
     [self configMenus];
     
-    //2.配置摄像头
+    //2.Config Camera
     [self configDevice];
     
-    //3.配置扫描图片
+    //3.Config scanning files
     [self configScanPic];
 }
 
@@ -243,10 +279,10 @@ static MyActionSheetCompletion actionSheetCompletion;
     [self detectQRCodeFromImage:image];
 }
 
-#pragma mark - 1.配置头部和底部
+#pragma mark - 1.Config UI part of head and bottom
 - (void)configMenus
 {
-    //头部
+    //Part of Head
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ScanMenuHeight + 10)];
     [topView setBackgroundColor:[UIColor blackColor]];
     topView.alpha = 0.5;
@@ -268,7 +304,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     [self.view addSubview:title];
     
     
-    //关闭按钮
+    //Close Button
     CGFloat btnW = 25;
     CGFloat btnH = 20;
     CGFloat btnX = 10;
@@ -280,14 +316,14 @@ static MyActionSheetCompletion actionSheetCompletion;
     [backBtn setTintColor:[UIColor whiteColor]];
     [self.view addSubview:backBtn];
     
-    //底部
+    //Part of Bottom
     CGFloat bottomY = self.view.frame.size.height - ScanMenuHeight;
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, bottomY, self.view.frame.size.width, ScanMenuHeight)];
     [bottomView setBackgroundColor:[UIColor blackColor]];
     bottomView.alpha = 0.5;
     [self.view addSubview:bottomView];
     
-    //开灯
+    //Turn On Or Off on switch
     CGFloat openW = 28;
     CGFloat openH = 28;
     CGFloat openX = 11;
@@ -300,51 +336,49 @@ static MyActionSheetCompletion actionSheetCompletion;
     torchBtn = openlight;
     
     UILabel *tipsLabel = [[UILabel alloc] init];
-    [tipsLabel setText:@"Alignment"];
+//    [tipsLabel setText:@"Alignment"];
     [tipsLabel setTextColor:[UIColor whiteColor]];
     tipsLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:tipsLabel];
     tipsLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    //宽度    给自己添加
+ 
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:tipsLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.view.frame.size.width - 50];
     [tipsLabel addConstraint:width];
     
-    //高度    给自己添加
     NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:tipsLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:100];
     [tipsLabel addConstraint:height];
     
-    //X值     添加到父容器
     NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:tipsLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     [self.view addConstraint:centerX];
     
-    //Y值     添加到父容器
     NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:tipsLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
     [self.view addConstraint:centerY];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
-#pragma mark - 2.配置摄像头
+#pragma mark - 2.Config Camera
 - (void)configDevice
 {
-    //获取摄像设备
+    //Acquire camera device
     AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if(device){
-        //创建输入流
+        //Create Input Stream
         AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-        //创建输出流
+        //Create Output Stream
         AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
-        //设置代理 在主线程里刷新
+        //Setup delegate on running the main thread
         [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         
-        //初始化链接对象
+        //Initialized session object
         session = [[AVCaptureSession alloc]init];
-        //高质量采集率
+        //Adopted rate in High Capture Quality
         [session setSessionPreset:AVCaptureSessionPresetHigh];
         
         [session addInput:input];
         [session addOutput:output];
-        //设置扫码支持的编码格式(如下设置条形码和二维码兼容)
+        
+        //Setup QR code encoding format
         output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode,
                                        AVMetadataObjectTypeEAN13Code,
                                        AVMetadataObjectTypeEAN8Code,
@@ -364,28 +398,28 @@ static MyActionSheetCompletion actionSheetCompletion;
         rect.size.width = width;
         self.captureRectArea = rect;
         
-        CGFloat screenHeight = self.view.frame.size.height;
-        CGFloat screenWidth = self.view.frame.size.width;
-        [output setRectOfInterest:CGRectMake(rect.origin.x / screenWidth, rect.origin.y / screenHeight, rect.size.width / screenWidth, rect.size.height / screenHeight)];
+         //Specific scanning size area
+//        CGFloat screenHeight = self.view.frame.size.height;
+//        CGFloat screenWidth = self.view.frame.size.width;
+//        CGRect rectInterest = CGRectMake(rect.origin.x / screenWidth, rect.origin.y / screenHeight, rect.size.width / screenWidth, rect.size.height / screenHeight);
+//        [output setRectOfInterest:rectInterest];
         
-        //开始捕获
+        //Starting Capture
         [session startRunning];
         
-        //开始动画扫描
+        //Start capture's animation
         [self scanningTimer];
     }
 }
 
-#pragma mark - 3.配置扫描图片
+#pragma mark - 3.Config scanning files
 - (void)configScanPic
 {
-    //添加扫描图片
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[self stretchImage:@"ZR_ScanFrame"]];
     imgView.frame = self.captureRectArea; 
     [self.view addSubview:imgView];
     self.scanImage0 = imgView;
     
-    //添加扫描的扫描条
     CGRect sImgRect = CGRectMake(10, 5, self.captureRectArea.size.width - 20, 10);
     UIImageView *scanImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ZR_ScanLine"]];
     scanImg.frame = sImgRect;
@@ -393,7 +427,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     self.scanImage1 = scanImg;
 }
 
-#pragma mark - 扫描定时器
+#pragma mark - Scanning Timer
 - (void)scanningTimer
 {
     if(!self.scanTimer){
@@ -418,21 +452,21 @@ static MyActionSheetCompletion actionSheetCompletion;
     }];
 }
 
-#pragma mark 停止扫描
+#pragma mark Stop Scanning
 - (void)stopScanning
 {
     [self.scanTimer invalidate];
     self.scanTimer = nil;
 }
 
-#pragma mark 关闭扫描
+#pragma mark Close Scanning
 - (void)closeQRCodeScan
 {
     [session stopRunning];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark 开灯与关灯
+#pragma mark The switch , turn On or Off
 - (void)torchOnOrOff
 {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -449,7 +483,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
     if (metadataObjects.count>0) {
-        
+        [self playSoundWhenScanSuccess];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         NSString *svalue = metadataObject.stringValue;
         if (recognizeCompletion) {
@@ -481,13 +515,20 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 - (void)detectQRCodeFromImage:(UIImage *)image
 {
+    NSString *strValue = [[NSString alloc] init];
     NSArray *features = [self.detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
     if (features.count >= 1) {
+        [self playSoundWhenScanSuccess];
         CIQRCodeFeature *feature = [features objectAtIndex:0];
-        NSString *strValue = feature.messageString;
-        if (recognizeCompletion) {
-            recognizeCompletion(strValue);
+        strValue = feature.messageString;
+    } else {
+        if (!self.textWhenNotRecognized) {
+            self.textWhenNotRecognized = @"No any QR Code texture on the picture were found!";
         }
+        strValue = [[NSString alloc] initWithString:self.textWhenNotRecognized];
+    }
+    if (recognizeCompletion) {
+        recognizeCompletion(strValue);
     }
 }
 
@@ -501,6 +542,29 @@ static MyActionSheetCompletion actionSheetCompletion;
     if (actionSheetCompletion) {
         actionSheetCompletion = nil;
     }
+    
+    [self disposeSound];
+}
+
+/*
+ * Create Or Dispose Sounds after scanning
+ **/
+- (ZRAudio *)playSound
+{
+    if (!_playSound) {
+        _playSound = [[ZRAudio alloc] init];
+    }
+    return _playSound;
+}
+
+- (void)playSoundWhenScanSuccess
+{
+    [self.playSound playSoundWhenScanSuccess];
+}
+
+- (void)disposeSound
+{
+    [self.playSound disposeSound];
 }
 
 - (void)didReceiveMemoryWarning

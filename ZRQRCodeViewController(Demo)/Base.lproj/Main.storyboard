@@ -1,25 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iVI-pD-o1v">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="YbU-Cw-jce">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <navigationController id="iVI-pD-o1v" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BrZ-is-bxe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rmy-Re-Fcm" kind="relationship" relationship="rootViewController" id="SyK-jF-t49"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pS-3p-a8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="230"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="m4M-fH-6Ri">
+            <objects>
+                <viewController id="Rmy-Re-Fcm" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="UZs-JU-nhS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dzx-v9-5xP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="00H-2z-CNj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acq-My-tAo">
+                                <rect key="frame" x="30" y="92" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.34898499710000003" green="0.83647017050000005" blue="0.048281700439999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JEK-RU-mG0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="QRCode Scanning 1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="QRCodeScanning1:" destination="Rmy-Re-Fcm" eventType="touchUpInside" id="FOe-eB-ljf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FY7-cF-A0d">
+                                <rect key="frame" x="30" y="147" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.34898499710000003" green="0.83647017050000005" blue="0.048281700439999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bvt-Zp-00D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="QRCode Scanning 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="QRCodeScanning2:" destination="Rmy-Re-Fcm" eventType="touchUpInside" id="Ev7-ar-qgW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t8-TK-CF8">
+                                <rect key="frame" x="30" y="202" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.34898499710000003" green="0.83647017050000005" blue="0.048281700439999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rki-9I-G1t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Recognization QRCode by Photo Library">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recognizationByPhotoLibrary:" destination="Rmy-Re-Fcm" eventType="touchUpInside" id="6D6-k8-Fw8"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZR_Victor0" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-E7-dOy">
+                                <rect key="frame" x="30" y="257" width="540" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="hLT-JK-9J0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="acq-My-tAo" firstAttribute="top" secondItem="UZs-JU-nhS" secondAttribute="bottom" constant="28" id="ICm-Zb-hwC"/>
+                            <constraint firstItem="acq-My-tAo" firstAttribute="leading" secondItem="00H-2z-CNj" secondAttribute="leading" constant="30" id="OsN-Cc-FFQ"/>
+                            <constraint firstItem="4t8-TK-CF8" firstAttribute="top" secondItem="FY7-cF-A0d" secondAttribute="bottom" constant="15" id="PCL-uG-G8K"/>
+                            <constraint firstItem="E9J-E7-dOy" firstAttribute="top" secondItem="4t8-TK-CF8" secondAttribute="bottom" constant="15" id="RCV-ic-Y2N"/>
+                            <constraint firstItem="4t8-TK-CF8" firstAttribute="leading" secondItem="00H-2z-CNj" secondAttribute="leading" constant="30" id="T2h-Ja-9gd"/>
+                            <constraint firstItem="FY7-cF-A0d" firstAttribute="leading" secondItem="00H-2z-CNj" secondAttribute="leading" constant="30" id="XI3-JC-XkT"/>
+                            <constraint firstAttribute="trailing" secondItem="acq-My-tAo" secondAttribute="trailing" constant="30" id="c8w-Cn-UBv"/>
+                            <constraint firstItem="FY7-cF-A0d" firstAttribute="top" secondItem="acq-My-tAo" secondAttribute="bottom" constant="15" id="pVr-2j-fLp"/>
+                            <constraint firstItem="E9J-E7-dOy" firstAttribute="leading" secondItem="00H-2z-CNj" secondAttribute="leading" constant="30" id="tbA-i6-iWT"/>
+                            <constraint firstAttribute="trailing" secondItem="FY7-cF-A0d" secondAttribute="trailing" constant="30" id="umq-BT-ZLx"/>
+                            <constraint firstAttribute="trailing" secondItem="4t8-TK-CF8" secondAttribute="trailing" constant="30" id="yuf-ff-cJ7"/>
+                            <constraint firstAttribute="trailing" secondItem="E9J-E7-dOy" secondAttribute="trailing" constant="30" id="zWA-2M-DQE"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="igI-9H-5cR"/>
+                    <connections>
+                        <outlet property="qrcodePicture" destination="E9J-E7-dOy" id="lN0-BF-vLJ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMf-ap-pIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="758" y="230"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ZR_Victor0" width="322" height="417"/>
+    </resources>
 </document>

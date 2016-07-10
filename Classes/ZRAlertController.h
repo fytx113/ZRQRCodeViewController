@@ -5,9 +5,9 @@
 //  Created by Victor John on 16/1/10.
 //  Copyright (c) 2016年 XiaoRuiGeGeStudio. All rights reserved.
 //
-//  https://github.com/VictorZhang2014/ZRAlertController
+//  https://github.com/VictorZhang2014/ZRQRCodeViewController
 //  An open source library for iOS in Objective-C that is being compatible with iOS 7.0 and later.
-//  Its main function that wrapped UIAlertView and UIAlertController that are easier to call.
+//  Its main function that QR Code Scanning framework that are easier to call.
 //
 
 #import <Foundation/Foundation.h>

@@ -1,37 +1,36 @@
 //
 //  ViewController.m
-//  ZRQRCodeViewController
+//  ZRQRCodeViewController(Demo)
 //
-//  Created by Victor John on 7/1/16.
+//  Created by Victor John on 7/3/16.
 //  Copyright © 2016 XiaoRuiGeGe. All rights reserved.
 //
-//  https://github.com/VictorZhang2014/ZRQRCodeViewController
-//  An open source library for iOS in Objective-C that is being compatible with iOS 7.0 and later.
-//  Its main function that QR Code Scanning framework that are easier to call.
-//
 
-#import "ViewController.h"
-#import "ZRQRCodeViewController.h"
-#import "ZRAlertController.h"
+#import "MainViewController.h"
+#import <ZRAlertController.h>
+#import <ZRQRCodeViewController/ZRQRCodeViewController.h>
 
-@interface ViewController ()
-- (IBAction)scanningQRCode1:(UIButton *)sender;
-- (IBAction)scanningQRCode:(UIButton *)sender;
+@interface MainViewController ()
+- (IBAction)QRCodeScanning1:(UIButton *)sender;
+- (IBAction)QRCodeScanning2:(UIButton *)sender;
 - (IBAction)recognizationByPhotoLibrary:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewExample;
+
+@property (weak, nonatomic) IBOutlet UIImageView *qrcodePicture;
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self recognizationByPhotoLib];
+    self.navigationItem.title = @"QR Code";
+    
+    [self recognizeByPhotoLib];
 }
 
-- (void)recognizationByPhotoLib
+- (void)recognizeByPhotoLib
 {
     ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
     qrCode.cancelButton = @"Cancel";
@@ -39,7 +38,7 @@
     qrCode.extractQRCodeText = @"Extract QR Code";
     NSString *savedImageText = @"Save Image";
     qrCode.saveImaegText = savedImageText;
-    [qrCode extractQRCodeByLongPressViewController:self Object:self.imageViewExample actionSheetCompletion:^(int index, NSString * _Nonnull value) {
+    [qrCode extractQRCodeByLongPressViewController:self Object:self.qrcodePicture actionSheetCompletion:^(int index, NSString * _Nonnull value) {
         if ([value isEqualToString:savedImageText]) {
             [[ZRAlertController defaultAlert] alertShow:self title:@"" message:@"Saved Image Successfully!" okayButton:@"Ok" completion:^{ }];
         }
@@ -56,7 +55,9 @@
     }];
 }
 
-- (IBAction)scanningQRCode1:(UIButton *)sender {
+
+- (IBAction)QRCodeScanning1:(UIButton *)sender {
+    
     ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
     qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
     [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
@@ -68,9 +69,11 @@
             [alertView show];
         }
     }];
+    
 }
 
-- (IBAction)scanningQRCode:(UIButton *)sender {
+- (IBAction)QRCodeScanning2:(UIButton *)sender {
+    
     ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeContinuation];
     [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
         NSLog(@"strValue = %@ ", strValue);
@@ -81,12 +84,13 @@
             [alertView show];
         }
     }];
+
+    
 }
 
-
 - (IBAction)recognizationByPhotoLibrary:(UIButton *)sender {
+    
     ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
-    qrCode.textWhenNotRecognized = @"No any QR Code texture on the picture were found!";
     [qrCode recognizationByPhotoLibraryViewController:self completion:^(NSString *strValue) {
         NSLog(@"strValue = %@ ", strValue);
         [[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
@@ -98,8 +102,6 @@
             }
         }];
     }];
+    
 }
-
-
-
 @end

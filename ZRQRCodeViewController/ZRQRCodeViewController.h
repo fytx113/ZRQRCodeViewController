@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger) {
  **/
 - (void)QRCodeScanningWithViewController:(UIViewController *)viewController completion:(MyBlockCompletion)completion;
 
+
+@property (nonatomic, copy) NSString *textWhenNotRecognized;
 /*
  * Recogize a QR Code picture through the Photo Library
  * @param viewController , is current controller
@@ -51,14 +53,14 @@ typedef NS_ENUM(NSInteger) {
 @property (nonatomic, copy) NSString *extractQRCodeText;
 @property (nonatomic, copy) NSString *saveImaegText;
 /*
- * Extract QR Code by Long press object , which maybe is UIImageView, UILabel, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
+ * Extract QR Code by Long press object , which maybe is UIImageView, UIButton, UIWebView, WKWebView, UIView , all of them , but that's okay for this method to extract.
  * @param viewController , is current controller
  * @param object , it is an object that show an image on any type of object , in which is a two dimensional code picture
  **/
 - (void)extractQRCodeByLongPressViewController:(UIViewController *)viewController Object:(id)object completion:(MyBlockCompletion)completion;
 
 /*
- * Extract QR Code by Long press object , which maybe is UIImageView, UILabel, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
+ * Extract QR Code by Long press object , which maybe is UIImageView, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
  * @param viewController , is current controller
  * @param actions , is an array for action sheet
  * @param actionSheetsCompletion, is a completion block for action sheet

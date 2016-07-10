@@ -17,10 +17,12 @@
 		571936F21D28DB7E007D5A09 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936F11D28DB7E007D5A09 /* ZRAlertController.m */; };
 		57F528AB1D29453F00DB8158 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528AA1D29453F00DB8158 /* main.m */; };
 		57F528AE1D29453F00DB8158 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528AD1D29453F00DB8158 /* AppDelegate.m */; };
-		57F528B11D29453F00DB8158 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528B01D29453F00DB8158 /* ViewController.m */; };
+		57F528B11D29453F00DB8158 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528B01D29453F00DB8158 /* MainViewController.m */; };
 		57F528B41D29453F00DB8158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F528B21D29453F00DB8158 /* Main.storyboard */; };
 		57F528B61D29453F00DB8158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F528B51D29453F00DB8158 /* Assets.xcassets */; };
 		57F528B91D29453F00DB8158 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F528B71D29453F00DB8158 /* LaunchScreen.storyboard */; };
+		57F8AF651D30F433007D2F52 /* ZR_Scan_Success.caf in Resources */ = {isa = PBXBuildFile; fileRef = 57F8AF641D30F433007D2F52 /* ZR_Scan_Success.caf */; };
+		57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F8AF671D30F918007D2F52 /* ZRAudio.m */; };
 		9554A83182562D4FD5B20B7A /* libPods-ZRQRCodeViewController(Demo).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B1C336887F663BE0024B0F /* libPods-ZRQRCodeViewController(Demo).a */; };
 		F7EC927AFF4753E8D7165DF2 /* libPods-ZRQRCodeViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EAA006E8E61895FF90B58 /* libPods-ZRQRCodeViewController.a */; };
 /* End PBXBuildFile section */
@@ -48,12 +50,15 @@
 		57F528AA1D29453F00DB8158 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57F528AC1D29453F00DB8158 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57F528AD1D29453F00DB8158 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		57F528AF1D29453F00DB8158 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		57F528B01D29453F00DB8158 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		57F528AF1D29453F00DB8158 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		57F528B01D29453F00DB8158 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		57F528B31D29453F00DB8158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57F528B51D29453F00DB8158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F528B81D29453F00DB8158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F528BA1D29453F00DB8158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57F8AF641D30F433007D2F52 /* ZR_Scan_Success.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ZR_Scan_Success.caf; sourceTree = "<group>"; };
+		57F8AF661D30F918007D2F52 /* ZRAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAudio.h; sourceTree = "<group>"; };
+		57F8AF671D30F918007D2F52 /* ZRAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAudio.m; sourceTree = "<group>"; };
 		6429C4792C0DA18377D585E5 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZRQRCodeViewController(Demo).release.xcconfig"; path = "Pods/Target Support Files/Pods-ZRQRCodeViewController(Demo)/Pods-ZRQRCodeViewController(Demo).release.xcconfig"; sourceTree = "<group>"; };
 		9F0EAA006E8E61895FF90B58 /* libPods-ZRQRCodeViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZRQRCodeViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +115,7 @@
 		571936D41D26A966007D5A09 /* ZRQRCodeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				57F8AF641D30F433007D2F52 /* ZR_Scan_Success.caf */,
 				571936D81D26A966007D5A09 /* AppDelegate.h */,
 				571936D91D26A966007D5A09 /* AppDelegate.m */,
 				571936DB1D26A966007D5A09 /* ViewController.h */,
@@ -118,6 +124,8 @@
 				571936ED1D26A996007D5A09 /* ZRQRCodeViewController.m */,
 				571936F01D28DB7E007D5A09 /* ZRAlertController.h */,
 				571936F11D28DB7E007D5A09 /* ZRAlertController.m */,
+				57F8AF661D30F918007D2F52 /* ZRAudio.h */,
+				57F8AF671D30F918007D2F52 /* ZRAudio.m */,
 				571936DE1D26A966007D5A09 /* Main.storyboard */,
 				571936E11D26A966007D5A09 /* Assets.xcassets */,
 				571936E31D26A966007D5A09 /* LaunchScreen.storyboard */,
@@ -140,8 +148,8 @@
 			children = (
 				57F528AC1D29453F00DB8158 /* AppDelegate.h */,
 				57F528AD1D29453F00DB8158 /* AppDelegate.m */,
-				57F528AF1D29453F00DB8158 /* ViewController.h */,
-				57F528B01D29453F00DB8158 /* ViewController.m */,
+				57F528AF1D29453F00DB8158 /* MainViewController.h */,
+				57F528B01D29453F00DB8158 /* MainViewController.m */,
 				57F528B21D29453F00DB8158 /* Main.storyboard */,
 				57F528B51D29453F00DB8158 /* Assets.xcassets */,
 				57F528B71D29453F00DB8158 /* LaunchScreen.storyboard */,
@@ -256,6 +264,7 @@
 			files = (
 				571936E51D26A966007D5A09 /* LaunchScreen.storyboard in Resources */,
 				571936E21D26A966007D5A09 /* Assets.xcassets in Resources */,
+				57F8AF651D30F433007D2F52 /* ZR_Scan_Success.caf in Resources */,
 				571936E01D26A966007D5A09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */,
 				571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */,
 				571936DD1D26A966007D5A09 /* ViewController.m in Sources */,
 				571936DA1D26A966007D5A09 /* AppDelegate.m in Sources */,
@@ -382,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F528B11D29453F00DB8158 /* ViewController.m in Sources */,
+				57F528B11D29453F00DB8158 /* MainViewController.m in Sources */,
 				57F528AE1D29453F00DB8158 /* AppDelegate.m in Sources */,
 				57F528AB1D29453F00DB8158 /* main.m in Sources */,
 			);
@@ -516,6 +526,7 @@
 				INFOPLIST_FILE = ZRQRCodeViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoruigege.ZRQRCodeViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -529,6 +540,7 @@
 				INFOPLIST_FILE = ZRQRCodeViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoruigege.ZRQRCodeViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -540,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ZRQRCodeViewController(Demo)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaoruigege.ZRQRCodeViewController-Demo-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -552,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ZRQRCodeViewController(Demo)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaoruigege.ZRQRCodeViewController-Demo-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
