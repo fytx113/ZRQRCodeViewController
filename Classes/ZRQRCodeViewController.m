@@ -21,6 +21,7 @@ static MyBlockCompletion recognizeCompletion;
 static MyActionSheetCompletion actionSheetCompletion;
 
 #define ScanMenuHeight 45
+#define ABOVEiOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0
 
 @interface ZRQRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -111,7 +112,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 }
 
 /*
- * Extract QR Code by Long press object , which maybe is UIImageView, UILabel, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
+ * Extract QR Code by Long press object , which maybe is UIImageView, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
  **/
 - (void)extractQRCodeByLongPressViewController:(UIViewController *)viewController Object:(id)object completion:(MyBlockCompletion)completion
 {
@@ -168,6 +169,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     [viewController addChildViewController:self];
     self.lastController = viewController;
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(extractQRCodeByLongPress:)];
+    
     if ([object isKindOfClass:[UIImageView class]]) {
         
         UIImageView *imgView = (UIImageView *)object;
@@ -183,19 +185,28 @@ static MyActionSheetCompletion actionSheetCompletion;
         UIWebView *webView = (UIWebView *)object;
         webView.userInteractionEnabled = YES;
         [webView addGestureRecognizer:longPressGesture];
-    } else if ([object isKindOfClass:[WKWebView class]]) {
-        
-        WKWebView *webView = (WKWebView *)object;
-        webView.userInteractionEnabled = YES;
-        [webView addGestureRecognizer:longPressGesture];
     } else if ([object isKindOfClass:[UIView class]]) {
         
         UIView *lview = (UIView *)object;
         lview.userInteractionEnabled = YES;
         [lview addGestureRecognizer:longPressGesture];
-    } else {
+    } else if ([object isKindOfClass:[UIViewController class]]) {
         
-        if (recognizeCompletion) {
+        UIViewController *viewV = (UIViewController *)object;
+        viewV.view.userInteractionEnabled = YES;
+        [viewV.view addGestureRecognizer:longPressGesture];
+    } else {
+        bool isWKWebView = false;
+        if (ABOVEiOS8) {
+            if ([object isKindOfClass:[WKWebView class]]) {
+                isWKWebView = true;
+                WKWebView *webView = (WKWebView *)object;
+                webView.userInteractionEnabled = YES;
+                [webView addGestureRecognizer:longPressGesture];
+            }
+        }
+        
+        if (!isWKWebView && recognizeCompletion) {
             recognizeCompletion(@"Can not support other type of object! ");
         }
     }

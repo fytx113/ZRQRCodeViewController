@@ -80,28 +80,10 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_Backward@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanFrame@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanFrame@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanLine@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanLine@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_Victor0@2x.png"
+  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_Backward@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanFrame@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanFrame@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanLine@2x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_ScanLine@3x.png"
-  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle/ZR_Victor0@2x.png"
+  install_resource "ZRQRCodeViewController/Classes/ZRQRCode.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

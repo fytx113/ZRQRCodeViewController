@@ -21,6 +21,7 @@ static MyBlockCompletion recognizeCompletion;
 static MyActionSheetCompletion actionSheetCompletion;
 
 #define ScanMenuHeight 45
+#define ABOVEiOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0
 
 @interface ZRQRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -168,6 +169,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     [viewController addChildViewController:self];
     self.lastController = viewController;
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(extractQRCodeByLongPress:)];
+    
     if ([object isKindOfClass:[UIImageView class]]) {
         
         UIImageView *imgView = (UIImageView *)object;
@@ -183,11 +185,6 @@ static MyActionSheetCompletion actionSheetCompletion;
         UIWebView *webView = (UIWebView *)object;
         webView.userInteractionEnabled = YES;
         [webView addGestureRecognizer:longPressGesture];
-    } else if ([object isKindOfClass:[WKWebView class]]) {
-        
-        WKWebView *webView = (WKWebView *)object;
-        webView.userInteractionEnabled = YES;
-        [webView addGestureRecognizer:longPressGesture];
     } else if ([object isKindOfClass:[UIView class]]) {
         
         UIView *lview = (UIView *)object;
@@ -199,8 +196,17 @@ static MyActionSheetCompletion actionSheetCompletion;
         viewV.view.userInteractionEnabled = YES;
         [viewV.view addGestureRecognizer:longPressGesture];
     } else {
+        bool isWKWebView = false;
+        if (ABOVEiOS8) {
+            if ([object isKindOfClass:[WKWebView class]]) {
+                isWKWebView = true;
+                WKWebView *webView = (WKWebView *)object;
+                webView.userInteractionEnabled = YES;
+                [webView addGestureRecognizer:longPressGesture];
+            }
+        }
         
-        if (recognizeCompletion) {
+        if (!isWKWebView && recognizeCompletion) {
             recognizeCompletion(@"Can not support other type of object! ");
         }
     }

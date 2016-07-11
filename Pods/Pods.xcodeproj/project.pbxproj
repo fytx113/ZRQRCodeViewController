@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C9D7EC813F25895CE069D530FE6C3A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		0F7B6C6FC73D411A21F0D81ED1C2C440 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		391FE7DC183C8CB99628D318431F266E /* ZRQRCodeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CEB4B270636C0D6403D95C101FB0D80 /* ZRQRCodeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19D8F7D482EE32E72F42EECBE26AD850 /* ZRQRCodeViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C826B6D1C376450C636F36AF91A5C28 /* ZRQRCodeViewController-dummy.m */; };
 		3BF85792D12A4F1AE550E54A1E633803 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		3E2EF147C965533A70AF9FA0842686C7 /* ZRAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6C1AF678BE9B41CDEC706C5F33EE6 /* ZRAudio.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4895D82B1A4C414E5A26F803E89A1140 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E6F5D8C26178BBF3D6BE3A2AFF3832 /* ZRAlertController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		622EA33E64CDB633814D72ACC156F90A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		6C08CCA5653D9AFD61CCB757981985C6 /* ZRQRCodeViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E295CDF7501768745B9C893BD5FC951 /* ZRQRCodeViewController-dummy.m */; };
-		7708A447045356588702F457C35C1B6A /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 380FCE699AB726C688892C58581FE69B /* ZRQRCodeViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		BAACD5DAEEE3F207461BBC3C0C29B1C9 /* Pods-ZRQRCodeViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD9914B5DD778427A51E5534CD041B9 /* Pods-ZRQRCodeViewController-dummy.m */; };
-		D8FF295D4F67BA01494D6D2583A9E9A7 /* ZRAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0955816D47A6B59DFE5122486A651CBE /* ZRAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4A27B6AD581924868E26D4220B744FF /* Pods-ZRQRCodeViewController(Demo)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E3B0AABA7F0267B1B4E91794C3AD4F /* Pods-ZRQRCodeViewController(Demo)-dummy.m */; };
-		F59485AC8256B6224C9EABD713A70F00 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7415FE16A80C9AE3CF258422B416E1 /* ZRAlertController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		823010161F4388BC179D1337AD666949 /* ZRAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = E1E4D2CD18C0F465344B19B18258601B /* ZRAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		917974A3B8B46CB6A28EF8B6DB2D7A4E /* ZRQRCodeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CE28EA80B2A9863A9DC608ACEF4D533A /* ZRQRCodeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9562D5413DDEF9624C612D7CBB031E08 /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947AFA4E02385E5E71C921E0215268B7 /* ZRQRCodeViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9D634065B05323D528E9B23E7D919EF5 /* ZRAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2CBFAB799E7A8EF605BFCA2DF2801D /* ZRAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4A27B6AD581924868E26D4220B744FF /* Pods-ZRQRCodeViewController(Demo)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A9C40AB426FB3EA219AF45451789F5 /* Pods-ZRQRCodeViewController(Demo)-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,43 +31,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01F0C417736B3D61E4F494D12E8A3190 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController(Demo).debug.xcconfig"; sourceTree = "<group>"; };
-		0680DAFBAB876ADB89A73AC079EAFF1B /* Pods-ZRQRCodeViewController(Demo)-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController(Demo)-resources.sh"; sourceTree = "<group>"; };
-		07DBFB016447C653AF01CB419E769DA0 /* Pods-ZRQRCodeViewController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController-frameworks.sh"; sourceTree = "<group>"; };
-		0955816D47A6B59DFE5122486A651CBE /* ZRAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZRAlertController.h; path = Classes/ZRAlertController.h; sourceTree = "<group>"; };
-		0B7415FE16A80C9AE3CF258422B416E1 /* ZRAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZRAlertController.m; path = Classes/ZRAlertController.m; sourceTree = "<group>"; };
-		12127931F5D6D94EFD5EF89CECECEE93 /* ZRQRCodeViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZRQRCodeViewController.xcconfig; sourceTree = "<group>"; };
-		3168A07BDCC1979355864820EA7747D0 /* Pods-ZRQRCodeViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController.release.xcconfig"; sourceTree = "<group>"; };
-		33E3B0AABA7F0267B1B4E91794C3AD4F /* Pods-ZRQRCodeViewController(Demo)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZRQRCodeViewController(Demo)-dummy.m"; sourceTree = "<group>"; };
-		380FCE699AB726C688892C58581FE69B /* ZRQRCodeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZRQRCodeViewController.m; path = Classes/ZRQRCodeViewController.m; sourceTree = "<group>"; };
-		396FA9F8624C5DBBD5E9E308080E2FD1 /* libPods-ZRQRCodeViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZRQRCodeViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		48C22CB43C3D7572CA8C5A4C2E40CEAF /* ZR_Victor0@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_Victor0@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_Victor0@2x.png"; sourceTree = "<group>"; };
-		5176B50012CF51B5CCD90EF0294EC79E /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown"; sourceTree = "<group>"; };
-		52D221B36D399BFC3900999A2CA77110 /* libPods-ZRQRCodeViewController(Demo).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZRQRCodeViewController(Demo).a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DD9914B5DD778427A51E5534CD041B9 /* Pods-ZRQRCodeViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZRQRCodeViewController-dummy.m"; sourceTree = "<group>"; };
-		65A538E5E92E6617E3136CDB49B3B983 /* Pods-ZRQRCodeViewController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZRQRCodeViewController-acknowledgements.plist"; sourceTree = "<group>"; };
-		6CEB4B270636C0D6403D95C101FB0D80 /* ZRQRCodeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZRQRCodeViewController.h; path = Classes/ZRQRCodeViewController.h; sourceTree = "<group>"; };
-		6EF683390B46E462FB30E940E3DECF1D /* ZR_ScanLine@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_ScanLine@3x.png"; path = "Classes/ZRQRCode.bundle/ZR_ScanLine@3x.png"; sourceTree = "<group>"; };
-		6FB328D98394BFA99A72C6B5A9E2B235 /* ZR_qrcode_torch_btn@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_qrcode_torch_btn@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@2x.png"; sourceTree = "<group>"; };
-		70AD3029C9780FA4A89F94B468AAB607 /* ZR_qrcode_torch_btn_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_qrcode_torch_btn_selected@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@2x.png"; sourceTree = "<group>"; };
-		7E295CDF7501768745B9C893BD5FC951 /* ZRQRCodeViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZRQRCodeViewController-dummy.m"; sourceTree = "<group>"; };
-		88077650B2F3CB90079B20154CAB5E07 /* Pods-ZRQRCodeViewController(Demo)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController(Demo)-frameworks.sh"; sourceTree = "<group>"; };
+		08AFBEB0A8294939F2EFBEA2C53AB9AE /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist"; sourceTree = "<group>"; };
+		16A9C40AB426FB3EA219AF45451789F5 /* Pods-ZRQRCodeViewController(Demo)-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZRQRCodeViewController(Demo)-dummy.m"; sourceTree = "<group>"; };
+		1C826B6D1C376450C636F36AF91A5C28 /* ZRQRCodeViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZRQRCodeViewController-dummy.m"; sourceTree = "<group>"; };
+		344EB90DE89FA08061488F25D824E9F7 /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown"; sourceTree = "<group>"; };
+		46F4C387826D7CA4C4ABDB4785084E19 /* ZRQRCodeViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZRQRCodeViewController-prefix.pch"; sourceTree = "<group>"; };
+		52E6F5D8C26178BBF3D6BE3A2AFF3832 /* ZRAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZRAlertController.m; path = Classes/ZRAlertController.m; sourceTree = "<group>"; };
+		5A2297217C8E1DF14F0DAE6E650D809D /* Pods-ZRQRCodeViewController(Demo)-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController(Demo)-frameworks.sh"; sourceTree = "<group>"; };
+		5F9D8BFBA6B2409FC94A9AFDC7766742 /* libPods-ZRQRCodeViewController(Demo).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZRQRCodeViewController(Demo).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFA58E0D7688074CEFF8E93A10F2831 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController(Demo).debug.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A01E99FBCE9ADADB83F9E17D04C18DCD /* ZR_Backward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_Backward@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_Backward@2x.png"; sourceTree = "<group>"; };
+		947AFA4E02385E5E71C921E0215268B7 /* ZRQRCodeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZRQRCodeViewController.m; path = Classes/ZRQRCodeViewController.m; sourceTree = "<group>"; };
+		9D2CBFAB799E7A8EF605BFCA2DF2801D /* ZRAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZRAudio.h; path = Classes/ZRAudio.h; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		AC0A160468303D416E56704DAB28D9F2 /* Pods-ZRQRCodeViewController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController-resources.sh"; sourceTree = "<group>"; };
-		AE128E09AD28E40C1FCCCFF1F5AA886F /* ZR_ScanFrame@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_ScanFrame@3x.png"; path = "Classes/ZRQRCode.bundle/ZR_ScanFrame@3x.png"; sourceTree = "<group>"; };
-		C42F4134AFD3C63AAC5FDBA14D39B081 /* ZR_ScanFrame@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_ScanFrame@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_ScanFrame@2x.png"; sourceTree = "<group>"; };
-		C71ED76F7CDF6EC7D6FBA878B4590ACC /* ZR_ScanLine@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_ScanLine@2x.png"; path = "Classes/ZRQRCode.bundle/ZR_ScanLine@2x.png"; sourceTree = "<group>"; };
-		DF05D82AC96A9763BDB8F62E45BA0CBE /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist"; sourceTree = "<group>"; };
-		DF9A0018CD71126BC752BD1FD7E11656 /* Pods-ZRQRCodeViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController.debug.xcconfig"; sourceTree = "<group>"; };
-		DF9F5E60FCD0DCEDB03F593F8E7D6A33 /* Pods-ZRQRCodeViewController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZRQRCodeViewController-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AED6C1AF678BE9B41CDEC706C5F33EE6 /* ZRAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZRAudio.m; path = Classes/ZRAudio.m; sourceTree = "<group>"; };
+		C7E94121B0E5FD459DCE54563F3FE3B0 /* ZRQRCodeViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZRQRCodeViewController.xcconfig; sourceTree = "<group>"; };
+		C912019EBD01F2CA0AFB3AFEC3BBD3D9 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController(Demo).release.xcconfig"; sourceTree = "<group>"; };
+		CC047E7F2DE8BC2BB68D1DBD47F2FF95 /* libZRQRCodeViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZRQRCodeViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE28EA80B2A9863A9DC608ACEF4D533A /* ZRQRCodeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZRQRCodeViewController.h; path = Classes/ZRQRCodeViewController.h; sourceTree = "<group>"; };
+		DA0951E91A2E9407A5356FD6F8796789 /* ZRQRCode.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = ZRQRCode.bundle; path = Classes/ZRQRCode.bundle; sourceTree = "<group>"; };
+		E1E4D2CD18C0F465344B19B18258601B /* ZRAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZRAlertController.h; path = Classes/ZRAlertController.h; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		E9E2F39B498C052C23DC5272B0E5087A /* ZR_qrcode_torch_btn@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_qrcode_torch_btn@3x.png"; path = "Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn@3x.png"; sourceTree = "<group>"; };
-		F564AFD48D18C167B7C158A0785ACB7E /* libZRQRCodeViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZRQRCodeViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9929BDF55C6DA76C08B3AE2FCE653AB /* ZR_qrcode_torch_btn_selected@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ZR_qrcode_torch_btn_selected@3x.png"; path = "Classes/ZRQRCode.bundle/ZR_qrcode_torch_btn_selected@3x.png"; sourceTree = "<group>"; };
-		FB0CDA4E97C7B68BDE421453B3FAE610 /* ZRQRCodeViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZRQRCodeViewController-prefix.pch"; sourceTree = "<group>"; };
-		FDC7FA90F7546E7500DFA6CA387BF424 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZRQRCodeViewController(Demo).release.xcconfig"; sourceTree = "<group>"; };
+		EA7600A15212F974C02A7C2B9C7B0248 /* Pods-ZRQRCodeViewController(Demo)-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZRQRCodeViewController(Demo)-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,17 +73,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2C53F4AB1EBDE7651895759BCCF87B0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0C9D7EC813F25895CE069D530FE6C3A1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141F665E983CFF01B8DC953038882336 /* ZRQRCodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1E4D2CD18C0F465344B19B18258601B /* ZRAlertController.h */,
+				52E6F5D8C26178BBF3D6BE3A2AFF3832 /* ZRAlertController.m */,
+				9D2CBFAB799E7A8EF605BFCA2DF2801D /* ZRAudio.h */,
+				AED6C1AF678BE9B41CDEC706C5F33EE6 /* ZRAudio.m */,
+				CE28EA80B2A9863A9DC608ACEF4D533A /* ZRQRCodeViewController.h */,
+				947AFA4E02385E5E71C921E0215268B7 /* ZRQRCodeViewController.m */,
+				CCED4208482D2127B3461B36EA92F32A /* Resources */,
+				F2EBB1A01D6B94AD1C622A4EA36CD04F /* Support Files */,
+			);
+			path = ZRQRCodeViewController;
+			sourceTree = "<group>";
+		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,38 +99,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		488D044C573E29781A17D0391C23EDEE /* Targets Support Files */ = {
+		448D2C9A188F74DB9C2366F86DEF398B /* Pods-ZRQRCodeViewController(Demo) */ = {
 			isa = PBXGroup;
 			children = (
-				867B208B2596A7138FF8BABEEC2A025F /* Pods-ZRQRCodeViewController */,
-				676EF8AC3050663E75B05720CF474769 /* Pods-ZRQRCodeViewController(Demo) */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		49C1A75079B534F2190FBE865CF4DD83 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				396FA9F8624C5DBBD5E9E308080E2FD1 /* libPods-ZRQRCodeViewController.a */,
-				52D221B36D399BFC3900999A2CA77110 /* libPods-ZRQRCodeViewController(Demo).a */,
-				F564AFD48D18C167B7C158A0785ACB7E /* libZRQRCodeViewController.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		676EF8AC3050663E75B05720CF474769 /* Pods-ZRQRCodeViewController(Demo) */ = {
-			isa = PBXGroup;
-			children = (
-				5176B50012CF51B5CCD90EF0294EC79E /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown */,
-				DF05D82AC96A9763BDB8F62E45BA0CBE /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist */,
-				33E3B0AABA7F0267B1B4E91794C3AD4F /* Pods-ZRQRCodeViewController(Demo)-dummy.m */,
-				88077650B2F3CB90079B20154CAB5E07 /* Pods-ZRQRCodeViewController(Demo)-frameworks.sh */,
-				0680DAFBAB876ADB89A73AC079EAFF1B /* Pods-ZRQRCodeViewController(Demo)-resources.sh */,
-				01F0C417736B3D61E4F494D12E8A3190 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */,
-				FDC7FA90F7546E7500DFA6CA387BF424 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */,
+				344EB90DE89FA08061488F25D824E9F7 /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.markdown */,
+				08AFBEB0A8294939F2EFBEA2C53AB9AE /* Pods-ZRQRCodeViewController(Demo)-acknowledgements.plist */,
+				16A9C40AB426FB3EA219AF45451789F5 /* Pods-ZRQRCodeViewController(Demo)-dummy.m */,
+				5A2297217C8E1DF14F0DAE6E650D809D /* Pods-ZRQRCodeViewController(Demo)-frameworks.sh */,
+				EA7600A15212F974C02A7C2B9C7B0248 /* Pods-ZRQRCodeViewController(Demo)-resources.sh */,
+				7AFA58E0D7688074CEFF8E93A10F2831 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */,
+				C912019EBD01F2CA0AFB3AFEC3BBD3D9 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */,
 			);
 			name = "Pods-ZRQRCodeViewController(Demo)";
 			path = "Target Support Files/Pods-ZRQRCodeViewController(Demo)";
+			sourceTree = "<group>";
+		};
+		4A0297EB57963AE5474ACAB53383373A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F9D8BFBA6B2409FC94A9AFDC7766742 /* libPods-ZRQRCodeViewController(Demo).a */,
+				CC047E7F2DE8BC2BB68D1DBD47F2FF95 /* libZRQRCodeViewController.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -146,54 +128,42 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				DE600E03C6729841B1E2636CE5B67B48 /* Pods */,
-				49C1A75079B534F2190FBE865CF4DD83 /* Products */,
-				488D044C573E29781A17D0391C23EDEE /* Targets Support Files */,
+				C9A81020D56E6125BF100B5B54E39F6E /* Pods */,
+				4A0297EB57963AE5474ACAB53383373A /* Products */,
+				F0ECAE01C23FD4D623483197CE794B74 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		867B208B2596A7138FF8BABEEC2A025F /* Pods-ZRQRCodeViewController */ = {
+		C9A81020D56E6125BF100B5B54E39F6E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DF9F5E60FCD0DCEDB03F593F8E7D6A33 /* Pods-ZRQRCodeViewController-acknowledgements.markdown */,
-				65A538E5E92E6617E3136CDB49B3B983 /* Pods-ZRQRCodeViewController-acknowledgements.plist */,
-				5DD9914B5DD778427A51E5534CD041B9 /* Pods-ZRQRCodeViewController-dummy.m */,
-				07DBFB016447C653AF01CB419E769DA0 /* Pods-ZRQRCodeViewController-frameworks.sh */,
-				AC0A160468303D416E56704DAB28D9F2 /* Pods-ZRQRCodeViewController-resources.sh */,
-				DF9A0018CD71126BC752BD1FD7E11656 /* Pods-ZRQRCodeViewController.debug.xcconfig */,
-				3168A07BDCC1979355864820EA7747D0 /* Pods-ZRQRCodeViewController.release.xcconfig */,
-			);
-			name = "Pods-ZRQRCodeViewController";
-			path = "Target Support Files/Pods-ZRQRCodeViewController";
-			sourceTree = "<group>";
-		};
-		B82FB7A2F46A7541051313D5B7757A57 /* ZRQRCodeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0955816D47A6B59DFE5122486A651CBE /* ZRAlertController.h */,
-				0B7415FE16A80C9AE3CF258422B416E1 /* ZRAlertController.m */,
-				6CEB4B270636C0D6403D95C101FB0D80 /* ZRQRCodeViewController.h */,
-				380FCE699AB726C688892C58581FE69B /* ZRQRCodeViewController.m */,
-				FF2DA4BBB8C9710912FC9FF397AB586A /* Resources */,
-				EDFDF2D8DDBE438F837086E62CD7FE06 /* Support Files */,
-			);
-			path = ZRQRCodeViewController;
-			sourceTree = "<group>";
-		};
-		DE600E03C6729841B1E2636CE5B67B48 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B82FB7A2F46A7541051313D5B7757A57 /* ZRQRCodeViewController */,
+				141F665E983CFF01B8DC953038882336 /* ZRQRCodeViewController */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EDFDF2D8DDBE438F837086E62CD7FE06 /* Support Files */ = {
+		CCED4208482D2127B3461B36EA92F32A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				12127931F5D6D94EFD5EF89CECECEE93 /* ZRQRCodeViewController.xcconfig */,
-				7E295CDF7501768745B9C893BD5FC951 /* ZRQRCodeViewController-dummy.m */,
-				FB0CDA4E97C7B68BDE421453B3FAE610 /* ZRQRCodeViewController-prefix.pch */,
+				DA0951E91A2E9407A5356FD6F8796789 /* ZRQRCode.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F0ECAE01C23FD4D623483197CE794B74 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				448D2C9A188F74DB9C2366F86DEF398B /* Pods-ZRQRCodeViewController(Demo) */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F2EBB1A01D6B94AD1C622A4EA36CD04F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7E94121B0E5FD459DCE54563F3FE3B0 /* ZRQRCodeViewController.xcconfig */,
+				1C826B6D1C376450C636F36AF91A5C28 /* ZRQRCodeViewController-dummy.m */,
+				46F4C387826D7CA4C4ABDB4785084E19 /* ZRQRCodeViewController-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ZRQRCodeViewController";
@@ -208,32 +178,16 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		FF2DA4BBB8C9710912FC9FF397AB586A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A01E99FBCE9ADADB83F9E17D04C18DCD /* ZR_Backward@2x.png */,
-				6FB328D98394BFA99A72C6B5A9E2B235 /* ZR_qrcode_torch_btn@2x.png */,
-				E9E2F39B498C052C23DC5272B0E5087A /* ZR_qrcode_torch_btn@3x.png */,
-				70AD3029C9780FA4A89F94B468AAB607 /* ZR_qrcode_torch_btn_selected@2x.png */,
-				F9929BDF55C6DA76C08B3AE2FCE653AB /* ZR_qrcode_torch_btn_selected@3x.png */,
-				C42F4134AFD3C63AAC5FDBA14D39B081 /* ZR_ScanFrame@2x.png */,
-				AE128E09AD28E40C1FCCCFF1F5AA886F /* ZR_ScanFrame@3x.png */,
-				C71ED76F7CDF6EC7D6FBA878B4590ACC /* ZR_ScanLine@2x.png */,
-				6EF683390B46E462FB30E940E3DECF1D /* ZR_ScanLine@3x.png */,
-				48C22CB43C3D7572CA8C5A4C2E40CEAF /* ZR_Victor0@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		EF5C093420AC493024724AA08B7D33EF /* Headers */ = {
+		68FEC9CAE5771483F4716E916434B92A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8FF295D4F67BA01494D6D2583A9E9A7 /* ZRAlertController.h in Headers */,
-				391FE7DC183C8CB99628D318431F266E /* ZRQRCodeViewController.h in Headers */,
+				823010161F4388BC179D1337AD666949 /* ZRAlertController.h in Headers */,
+				9D634065B05323D528E9B23E7D919EF5 /* ZRAudio.h in Headers */,
+				917974A3B8B46CB6A28EF8B6DB2D7A4E /* ZRQRCodeViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,9 +198,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3238AFF5BBA37678E3FA42AA2495B297 /* Build configuration list for PBXNativeTarget "ZRQRCodeViewController" */;
 			buildPhases = (
-				CFE54B2A5AF190AE490E1C67D0DBBDFC /* Sources */,
+				CE8A1F97176D4C9CA75F4426299CFDCA /* Sources */,
 				CFFD08892C897E5A0AEBC84F4E1AF068 /* Frameworks */,
-				EF5C093420AC493024724AA08B7D33EF /* Headers */,
+				68FEC9CAE5771483F4716E916434B92A /* Headers */,
 			);
 			buildRules = (
 			);
@@ -254,23 +208,7 @@
 			);
 			name = ZRQRCodeViewController;
 			productName = ZRQRCodeViewController;
-			productReference = F564AFD48D18C167B7C158A0785ACB7E /* libZRQRCodeViewController.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		888B0368CDCBFE423C99A8344BDC0CDB /* Pods-ZRQRCodeViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E0265465C13B3A1512FB655C7922747 /* Build configuration list for PBXNativeTarget "Pods-ZRQRCodeViewController" */;
-			buildPhases = (
-				0AA93318D070CE31BB8A04CFC34354E6 /* Sources */,
-				D2C53F4AB1EBDE7651895759BCCF87B0 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-ZRQRCodeViewController";
-			productName = "Pods-ZRQRCodeViewController";
-			productReference = 396FA9F8624C5DBBD5E9E308080E2FD1 /* libPods-ZRQRCodeViewController.a */;
+			productReference = CC047E7F2DE8BC2BB68D1DBD47F2FF95 /* libZRQRCodeViewController.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9FF35777A17737C119760152A49EE122 /* Pods-ZRQRCodeViewController(Demo) */ = {
@@ -287,7 +225,7 @@
 			);
 			name = "Pods-ZRQRCodeViewController(Demo)";
 			productName = "Pods-ZRQRCodeViewController(Demo)";
-			productReference = 52D221B36D399BFC3900999A2CA77110 /* libPods-ZRQRCodeViewController(Demo).a */;
+			productReference = 5F9D8BFBA6B2409FC94A9AFDC7766742 /* libPods-ZRQRCodeViewController(Demo).a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -307,11 +245,10 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 49C1A75079B534F2190FBE865CF4DD83 /* Products */;
+			productRefGroup = 4A0297EB57963AE5474ACAB53383373A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				888B0368CDCBFE423C99A8344BDC0CDB /* Pods-ZRQRCodeViewController */,
 				9FF35777A17737C119760152A49EE122 /* Pods-ZRQRCodeViewController(Demo) */,
 				4AF2C8A70862B6529B58E59FBD4B360E /* ZRQRCodeViewController */,
 			);
@@ -319,21 +256,14 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0AA93318D070CE31BB8A04CFC34354E6 /* Sources */ = {
+		CE8A1F97176D4C9CA75F4426299CFDCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAACD5DAEEE3F207461BBC3C0C29B1C9 /* Pods-ZRQRCodeViewController-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFE54B2A5AF190AE490E1C67D0DBBDFC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F59485AC8256B6224C9EABD713A70F00 /* ZRAlertController.m in Sources */,
-				6C08CCA5653D9AFD61CCB757981985C6 /* ZRQRCodeViewController-dummy.m in Sources */,
-				7708A447045356588702F457C35C1B6A /* ZRQRCodeViewController.m in Sources */,
+				4895D82B1A4C414E5A26F803E89A1140 /* ZRAlertController.m in Sources */,
+				3E2EF147C965533A70AF9FA0842686C7 /* ZRAudio.m in Sources */,
+				19D8F7D482EE32E72F42EECBE26AD850 /* ZRQRCodeViewController-dummy.m in Sources */,
+				9562D5413DDEF9624C612D7CBB031E08 /* ZRQRCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,57 +329,15 @@
 			};
 			name = Debug;
 		};
-		99D3AC94DAA23D815E42C11974C90E1E /* Debug */ = {
+		834E162D4AE9ACE84CE9FCFDE5EB3718 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF9A0018CD71126BC752BD1FD7E11656 /* Pods-ZRQRCodeViewController.debug.xcconfig */;
+			baseConfigurationReference = 7AFA58E0D7688074CEFF8E93A10F2831 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B9C1F830E30E7CF7B3BCF0F221D69558 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3168A07BDCC1979355864820EA7747D0 /* Pods-ZRQRCodeViewController.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		E2229C0FDA704F1350E98AE8279B4DC7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01F0C417736B3D61E4F494D12E8A3190 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -464,7 +352,7 @@
 		};
 		E287AB7801AA4BFA689B1B9F7C818BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12127931F5D6D94EFD5EF89CECECEE93 /* ZRQRCodeViewController.xcconfig */;
+			baseConfigurationReference = C7E94121B0E5FD459DCE54563F3FE3B0 /* ZRQRCodeViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -482,6 +370,27 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		F0FC1CA696309C9E04547FD2783950BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C912019EBD01F2CA0AFB3AFEC3BBD3D9 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 		F325026B55060D3B22BEC0BAB5FA7344 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -521,30 +430,9 @@
 			};
 			name = Release;
 		};
-		F3269D6C4267AC079718BE073A3845CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDC7FA90F7546E7500DFA6CA387BF424 /* Pods-ZRQRCodeViewController(Demo).release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		F9EC7B6619EB4A96C1FC51F6D2B1E277 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12127931F5D6D94EFD5EF89CECECEE93 /* ZRQRCodeViewController.xcconfig */;
+			baseConfigurationReference = C7E94121B0E5FD459DCE54563F3FE3B0 /* ZRQRCodeViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -587,17 +475,8 @@
 		5A1D240E51D9157462757B93CA08557C /* Build configuration list for PBXNativeTarget "Pods-ZRQRCodeViewController(Demo)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2229C0FDA704F1350E98AE8279B4DC7 /* Debug */,
-				F3269D6C4267AC079718BE073A3845CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E0265465C13B3A1512FB655C7922747 /* Build configuration list for PBXNativeTarget "Pods-ZRQRCodeViewController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				99D3AC94DAA23D815E42C11974C90E1E /* Debug */,
-				B9C1F830E30E7CF7B3BCF0F221D69558 /* Release */,
+				834E162D4AE9ACE84CE9FCFDE5EB3718 /* Debug */,
+				F0FC1CA696309C9E04547FD2783950BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
