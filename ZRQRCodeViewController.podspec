@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name         = 'ZRQRCodeViewController'
-spec.version      = '2.2'
+spec.version      = '2.3'
 spec.license      = "MIT"
 spec.homepage     = 'https://github.com/VictorZhang2014/ZRQRCodeViewController.git'
 spec.author       = { "Victor Zhang" => "victorzhangq@gmail.com" }
@@ -9,6 +9,6 @@ spec.source       = { :git => 'https://github.com/VictorZhang2014/ZRQRCodeViewCo
 spec.platform = :ios
 spec.source_files = 'Classes/*.{h,m}'
 spec.resource = 'Classes/ZRQRCode.bundle'
-spec.frameworks    = 'UIKit', 'WebKit'
+spec.frameworks    = 'UIKit', 'WebKit','AudioToolbox'
 spec.requires_arc = true
 end
