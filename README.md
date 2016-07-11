@@ -3,6 +3,8 @@
 A delightful QR Code Scanning framework that being compatible with iOS 7.0 and later. It has strongly precision to scan QR Code. It can scan QR Code and Bar Code.
 
 ### 滚动到最下面有中文说明
+### CSDN博文
+- [CSDN博文详解 ZRQRCodeViewController](http://blog.csdn.net/u013538542/article/details/51883644) 
 
 ## How to get started
 -----------------------------------
@@ -19,7 +21,7 @@ A delightful QR Code Scanning framework that being compatible with iOS 7.0 and l
 $ gem install cocoapods
 ```
 
-> Cocoapods 0.39.0+ is required to build ZRQRCodeViewController 2.0
+> Cocoapods 0.39.0+ is required to build ZRQRCodeViewController 2.2
 
 #### podfile
 
@@ -29,7 +31,7 @@ To integrate ZRQRCodeViewController into your Xcode project using Cocoapods, spe
 source 'https://github.com/VictorZhang2014/ZRQRCodeViewController'
 platform :ios, '7.0'  
 
-pod 'ZRQRCodeViewController', '~>2.0'
+pod 'ZRQRCodeViewController', '~>2.2'
 ```
 Then, run the following command:
 
@@ -46,13 +48,13 @@ $ pod install
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
 qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
 [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
+   NSLog(@"strValue = %@ ", strValue);
+   if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+   } else {
+       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+       [alertView show];
+   }
 }];
 ```
 
@@ -60,13 +62,13 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 ```objective-c
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeContinuation];
 [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
+   NSLog(@"strValue = %@ ", strValue);
+   if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+   } else {
+       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+       [alertView show];
+   }
 }];
 ```
 
@@ -75,15 +77,15 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
 qrCode.textWhenNotRecognized = @"No any QR Code texture on the picture were found!";
 [qrCode recognizationByPhotoLibraryViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
-}];
+   NSLog(@"strValue = %@ ", strValue);
+   [[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }];
 }];
 ```
 
@@ -101,19 +103,19 @@ qrCode.extractQRCodeText = @"Extract QR Code";
 NSString *savedImageText = @"Save Image";
 qrCode.saveImaegText = savedImageText;
 [qrCode extractQRCodeByLongPressViewController:self Object:self.imageViewExample actionSheetCompletion:^(int index, NSString * _Nonnull value) {
-if ([value isEqualToString:savedImageText]) {
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:@"Saved Image Successfully!" okayButton:@"Ok" completion:^{ }];
-}
+    if ([value isEqualToString:savedImageText]) {
+       [[ZRAlertController defaultAlert] alertShow:self title:@"" message:@"Saved Image Successfully!" okayButton:@"Ok" completion:^{ }];
+    }
 } completion:^(NSString * _Nonnull strValue) {
-NSLog(@"strValue = %@ ", strValue);
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
-}];
+    NSLog(@"strValue = %@ ", strValue);
+    [[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }];
 }];
 ```
 
@@ -123,6 +125,9 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 
 # ZRQRCodeViewController
 ZRQRCodeViewController是一个非常好用的二维码扫描框架，兼容iOS 7.0及以后的系统版本。    有很精确的扫描能力，识别二维码和条形码。
+
+### CSDN博文
+- [CSDN博文详解 ZRQRCodeViewController](http://blog.csdn.net/u013538542/article/details/51883644) 
 
 ## 如何开始
 -----------------------------------
@@ -139,17 +144,17 @@ ZRQRCodeViewController是一个非常好用的二维码扫描框架，兼容iOS 
 $ gem install cocoapods
 ```
 
-> Cocoapods 0.39.0+ is required to build ZRQRCodeViewController 2.0
+> Cocoapods 0.39.0+ is required to build ZRQRCodeViewController 2.2
 
 #### podfile
 
-To integrate ZRQRCodeViewController into your Xcode project using Cocoapods, specify it in your `Podfile`:
+使用Cocoapods把ZRQRCodeViewController库集成到你的项目，podfile文件内容如下
 
 ```ruby
 source 'https://github.com/VictorZhang2014/ZRQRCodeViewController'
 platform :ios, '7.0'  
 
-pod 'ZRQRCodeViewController', '~>2.0'
+pod 'ZRQRCodeViewController', '~>2.2'
 ```
 接着，运行以下命令
 
@@ -165,13 +170,13 @@ $ pod install
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
 qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
 [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
+    NSLog(@"strValue = %@ ", strValue);
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }];
 ```
 
@@ -179,13 +184,13 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 ```objective-c
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeContinuation];
 [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
+     NSLog(@"strValue = %@ ", strValue);
+     if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+     } else {
+          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+          [alertView show];
+     }
 }];
 ```
 
@@ -194,15 +199,15 @@ UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:
 ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
 qrCode.textWhenNotRecognized = @"No any QR Code texture on the picture were found!";
 [qrCode recognizationByPhotoLibraryViewController:self completion:^(NSString *strValue) {
-NSLog(@"strValue = %@ ", strValue);
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
-}];
+    NSLog(@"strValue = %@ ", strValue);
+    [[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
+         if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+         } else {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+             [alertView show];
+         }
+    }];
 }];
 ```
 
@@ -219,19 +224,19 @@ qrCode.extractQRCodeText = @"Extract QR Code";
 NSString *savedImageText = @"Save Image";
 qrCode.saveImaegText = savedImageText;
 [qrCode extractQRCodeByLongPressViewController:self Object:self.imageViewExample actionSheetCompletion:^(int index, NSString * _Nonnull value) {
-if ([value isEqualToString:savedImageText]) {
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:@"Saved Image Successfully!" okayButton:@"Ok" completion:^{ }];
-}
+    if ([value isEqualToString:savedImageText]) {
+         [[ZRAlertController defaultAlert] alertShow:self title:@"" message:@"Saved Image Successfully!" okayButton:@"Ok" completion:^{ }];
+    }
 } completion:^(NSString * _Nonnull strValue) {
-NSLog(@"strValue = %@ ", strValue);
-[[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
-if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-} else {
-UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-[alertView show];
-}
-}];
+    NSLog(@"strValue = %@ ", strValue);
+    [[ZRAlertController defaultAlert] alertShow:self title:@"" message:[NSString stringWithFormat:@"Result: %@", strValue] okayButton:@"Ok" completion:^{
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+        } else {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+             [alertView show];
+        }
+    }];
 }];
 ```
 
