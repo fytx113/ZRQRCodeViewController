@@ -76,9 +76,9 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZR_Victor0" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-E7-dOy">
-                                <rect key="frame" x="30" y="257" width="540" height="350"/>
+                                <rect key="frame" x="30" y="257" width="540" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="hLT-JK-9J0"/>
+                                    <constraint firstAttribute="height" constant="400" id="hLT-JK-9J0"/>
                                 </constraints>
                             </imageView>
                         </subviews>
