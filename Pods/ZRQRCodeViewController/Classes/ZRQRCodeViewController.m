@@ -35,19 +35,9 @@ static MyActionSheetCompletion actionSheetCompletion;
 @property (nonatomic, strong) ZRAudio *playSound;
 
 @property (nonatomic, strong) UIViewController *lastController;//The last controller
-
-@property (nonatomic, strong) ZRCustomBundle *customBundle;
 @end
 
 @implementation ZRQRCodeViewController
-
-- (ZRCustomBundle *)customBundle
-{
-    if (!_customBundle) {
-        _customBundle = [[ZRCustomBundle alloc] initWithBundleName:@"ZRQRCode"];
-    }
-    return _customBundle;
-}
 
 - (NSArray *)qrCodeActionSheets
 {
@@ -322,7 +312,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     CGFloat btnX = 10;
     CGFloat btnY = 23;
     UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(btnX, btnY, btnW, btnH)];
-    [backBtn setBackgroundImage:[self.customBundle getImageWithName:@"ZR_Backward"] forState:UIControlStateNormal];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"ZR_Backward"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(closeQRCodeScan) forControlEvents:UIControlEventTouchUpInside];
     [backBtn.imageView setTintColor:[UIColor whiteColor]];
     [backBtn setTintColor:[UIColor whiteColor]];
@@ -341,8 +331,8 @@ static MyActionSheetCompletion actionSheetCompletion;
     CGFloat openX = 11;
     CGFloat openY = 8;
     UIButton *openlight = [[UIButton alloc] initWithFrame:CGRectMake(openX, openY, openW, openH)];
-    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn"] forState:UIControlStateNormal];
-    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn_selected"] forState:UIControlStateSelected];
+    [openlight setBackgroundImage:[UIImage imageNamed:@"ZR_qrcode_torch_btn"] forState:UIControlStateNormal];
+    [openlight setBackgroundImage:[UIImage imageNamed:@"ZR_qrcode_torch_btn_selected"] forState:UIControlStateSelected];
     [openlight addTarget:self action:@selector(torchOnOrOff) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:openlight];
     torchBtn = openlight;
@@ -433,7 +423,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     self.scanImage0 = imgView;
     
     CGRect sImgRect = CGRectMake(10, 5, self.captureRectArea.size.width - 20, 10);
-    UIImageView *scanImg = [[UIImageView alloc] initWithImage:[self.customBundle getImageWithName:@"ZR_ScanLine"]];
+    UIImageView *scanImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ZR_ScanLine"]];
     scanImg.frame = sImgRect;
     [imgView addSubview:scanImg];
     self.scanImage1 = scanImg;
@@ -511,7 +501,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 - (UIImage *)stretchImage:(NSString *)imgPath
 {
-    UIImage *img = [self.customBundle getImageWithName:imgPath];
+    UIImage *img = [UIImage imageNamed:imgPath];
     return [img stretchableImageWithLeftCapWidth:img.size.width * 0.5f topCapHeight:img.size.height * 0.5f];
 }
 

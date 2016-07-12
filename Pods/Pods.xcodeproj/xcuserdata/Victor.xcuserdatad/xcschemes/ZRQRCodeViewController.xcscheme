@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9FF35777A17737C119760152A49EE122'
-               BlueprintName = 'Pods-ZRQRCodeViewController(Demo)'
+               BlueprintIdentifier = '4AF2C8A70862B6529B58E59FBD4B360E'
+               BlueprintName = 'ZRQRCodeViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-ZRQRCodeViewController(Demo).a'>
+               BuildableName = 'libZRQRCodeViewController.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -7,8 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import <ZRAlertController.h>
-#import <ZRQRCodeViewController/ZRQRCodeViewController.h>
+#import <ZRQRCodeController.h>
 
 @interface MainViewController ()
 - (IBAction)QRCodeScanning1:(UIButton *)sender;

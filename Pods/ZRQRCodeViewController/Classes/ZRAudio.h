@@ -11,25 +11,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface ZRAudio : NSObject
 
 - (void)playSoundWhenScanSuccess;
 
 - (void)disposeSound;
-
-@end
-
-
-@interface ZRCustomBundle : NSObject
-
-- (instancetype)initWithBundleName:(NSString *)bundleName;
-
-- (NSString *)getBundlePath;
-
-- (NSString *)getFileWithName:(NSString *)fileName;
-
-- (UIImage *)getImageWithName:(NSString *)imgName;
 
 @end

@@ -13,15 +13,27 @@
 #import "ZRAudio.h"
 #import <AudioToolbox/AudioToolbox.h>
 
+@interface ZRAudio()
+@property (nonatomic, strong) ZRCustomBundle *customBundle;
+
+@property (nonatomic, assign) SystemSoundID systemSoundId;
+@end
+
 @implementation ZRAudio
+
+- (ZRCustomBundle *)customBundle
+{
+    if (!_customBundle) {
+        _customBundle = [[ZRCustomBundle alloc] initWithBundleName:@"ZRQRCode"];
+    }
+    return _customBundle;
+}
 
 - (SystemSoundID)getDictSystemSoundID:(NSString **)soundName
 {
-    NSString *filename = @"ZR_Scan_Success";
-    if (soundName != NULL && !soundName)
-        *soundName = filename;
+    *soundName = @"ZR_Scan_Success";
     NSDictionary *soundDictionary = [[NSDictionary alloc] init];
-    SystemSoundID soundID = [soundDictionary[filename] unsignedIntValue];
+    SystemSoundID soundID = [soundDictionary[*soundName] unsignedIntValue];
     return soundID;
 }
 
@@ -30,18 +42,54 @@
     NSString *soundName = [[NSString alloc] init];
     SystemSoundID soundID = [self getDictSystemSoundID:&soundName];
     if(!soundID){
-        NSURL *url = [[NSBundle mainBundle] URLForResource:soundName withExtension:@".caf"];
+        NSString *cafPath = [[NSBundle bundleWithPath:[self.customBundle getBundlePath]] pathForResource:soundName ofType:@".caf"];
+        NSURL *url = [NSURL URLWithString:cafPath];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)(url), &soundID);
         AudioServicesPlayAlertSound(soundID);
+        self.systemSoundId = soundID;
     }
 }
 
 - (void)disposeSound
 {
-    SystemSoundID soundID = [self getDictSystemSoundID:nil];
-    if(soundID){
-        AudioServicesDisposeSystemSoundID(soundID);
-    }
+    AudioServicesDisposeSystemSoundID(self.systemSoundId);
 }
 
 @end
+
+
+@interface ZRCustomBundle()
+@property (nonatomic, copy) NSString *bundlePath;
+@end
+
+@implementation ZRCustomBundle
+
+- (instancetype)initWithBundleName:(NSString *)bundleName
+{
+    if (self = [super init]) {
+        _bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
+    }
+    return self;
+}
+
+- (NSString *)getBundlePath
+{
+    return self.bundlePath;
+}
+
+- (NSString *)getFileWithName:(NSString *)fileName
+{
+    return [self.bundlePath stringByAppendingPathComponent:fileName];
+}
+
+- (UIImage *)getImageWithName:(NSString *)imgName
+{
+    NSString *imgStr = [self.bundlePath stringByAppendingPathComponent:imgName];
+    return [UIImage imageWithContentsOfFile:imgStr];
+}
+
+@end
+
+
+
+
