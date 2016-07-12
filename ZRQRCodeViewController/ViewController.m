@@ -11,8 +11,7 @@
 //
 
 #import "ViewController.h"
-#import "ZRQRCodeViewController.h"
-#import "ZRAlertController.h"
+#import "ZRQRCodeController.h"
 
 @interface ViewController ()
 - (IBAction)scanningQRCode1:(UIButton *)sender;

@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger) {
 - (void)extractQRCodeByLongPressViewController:(UIViewController *)viewController Object:(id)object completion:(MyBlockCompletion)completion;
 
 /*
- * Extract QR Code by Long press object , which maybe is UIImageView, UILabel, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
+ * Extract QR Code by Long press object , which maybe is UIImageView, UIButton, UIWebView, WKWebView, UIView, UIViewController , all of them , but that's okay for this method to extract.
  * @param viewController , is current controller
  * @param actions , is an array for action sheet
  * @param actionSheetsCompletion, is a completion block for action sheet

@@ -11,11 +11,7 @@
 //
 
 #import "ZRQRCodeViewController.h"
-#import "ZRAlertController.h"
-#import <WebKit/WebKit.h>
-#import "ZRAudio.h"
-#import <AVFoundation/AVFoundation.h>
-
+#import "ZRQRCodeController.h"
 
 static MyBlockCompletion recognizeCompletion;
 static MyActionSheetCompletion actionSheetCompletion;

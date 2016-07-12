@@ -45,6 +45,7 @@
 		571936F01D28DB7E007D5A09 /* ZRAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAlertController.h; sourceTree = "<group>"; };
 		571936F11D28DB7E007D5A09 /* ZRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAlertController.m; sourceTree = "<group>"; };
 		578858A41D33408B0050A443 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRQRCodeController.h; sourceTree = "<group>"; };
 		57F528A71D29453F00DB8158 /* ZRQRCodeViewController(Demo).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZRQRCodeViewController(Demo).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F528AA1D29453F00DB8158 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57F528AC1D29453F00DB8158 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 				571936F11D28DB7E007D5A09 /* ZRAlertController.m */,
 				57F8AF661D30F918007D2F52 /* ZRAudio.h */,
 				57F8AF671D30F918007D2F52 /* ZRAudio.m */,
+				57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */,
 				571936DE1D26A966007D5A09 /* Main.storyboard */,
 				571936E11D26A966007D5A09 /* Assets.xcassets */,
 				571936E31D26A966007D5A09 /* LaunchScreen.storyboard */,
