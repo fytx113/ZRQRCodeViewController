@@ -14,6 +14,7 @@
 #import "ZRAlertController.h"
 #import <WebKit/WebKit.h>
 #import "ZRAudio.h"
+#import <AVFoundation/AVFoundation.h>
 
 
 static MyBlockCompletion recognizeCompletion;
