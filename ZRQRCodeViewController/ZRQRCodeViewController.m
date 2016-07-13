@@ -635,7 +635,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     if (viewController.navigationController) {
         [viewController.navigationController pushViewController:self animated:NO];
     } else {
-        [viewController presentViewController:self animated:nil completion:nil];
+        [viewController presentViewController:self animated:NO completion:nil];
     }
 }
 
