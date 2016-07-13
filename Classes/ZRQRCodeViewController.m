@@ -519,7 +519,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)closeQRCodeScan
 {
     [session stopRunning];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissController];
 }
 
 #pragma mark The switch , turn On or Off
@@ -633,18 +633,18 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)pushController:(UIViewController *)viewController
 {
     if (viewController.navigationController) {
-        [viewController.navigationController pushViewController:self animated:NO];
+        [viewController.navigationController pushViewController:self animated:false];
     } else {
-        [viewController presentViewController:self animated:NO completion:nil];
+        [viewController presentViewController:self animated:false completion:^{}];
     }
 }
 
 - (void)dismissController
 {
     if ([self.navigationController.childViewControllers lastObject] == self) {
-        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController popViewControllerAnimated:false];
     } else {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self dismissViewControllerAnimated:false completion:^{}];
     }
 }
 
