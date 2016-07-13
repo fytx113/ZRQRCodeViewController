@@ -116,7 +116,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     if (self.customView) {
         [self pushController:viewController];
     } else {
-        [viewController presentViewController:self animated:NO completion:nil];
+        [viewController presentViewController:self animated:NO completion:^{}];
     }
 }
 
@@ -139,7 +139,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:picker animated:YES completion:^{}];
 }
 
 /*
@@ -272,7 +272,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     if (self.cancelButton && self.cancelButton.length > 0) {
         tmpCancel = self.cancelButton;
     }
-    [[ZRAlertController defaultAlert] actionView:self.lastController title:nil cancel:tmpCancel others:tmpArr handler:^(int index, NSString * _Nonnull item) {
+    [[ZRAlertController defaultAlert] actionView:self.lastController title:@"" cancel:tmpCancel others:tmpArr handler:^(int index, NSString * _Nonnull item) {
         if ((tExtractTxt.length > 0 || self.extractQRCodeText.length > 0) &&
             ([tExtractTxt isEqualToString:item] || [self.extractQRCodeText isEqualToString:item])) {
             UIImage *image = [self screenShotImageByView:self.lastController.view];
@@ -323,7 +323,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 #pragma mark - UIImagePickerControllerDelegate event
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:^{}];
     [[self.lastController.childViewControllers lastObject] removeFromParentViewController];
     
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
