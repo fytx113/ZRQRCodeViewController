@@ -23,10 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.title = @"QR Code";
+    [self configBasis];
     
     [self recognizeByPhotoLib];
+}
+
+- (void)configBasis
+{
+    self.navigationItem.title = @"QR Code";
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:38.0 / 255.0f green:169.0 / 255.0f blue:28.0f / 255.0f alpha:1];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 - (void)recognizeByPhotoLib
@@ -56,10 +66,8 @@
 
 
 - (IBAction)QRCodeScanning1:(UIButton *)sender {
-    
-    UIColor *white = [UIColor whiteColor];
-    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn customView:self.view navigationBarTitle:@"QR Code"];
-    qrCode.VCTintColor = white;
+    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
+    qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
     [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
         NSLog(@"strValue = %@ ", strValue);
         if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
@@ -69,19 +77,6 @@
             [alertView show];
         }
     }];
-    
-    
-//    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
-//    qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
-//    [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
-//        NSLog(@"strValue = %@ ", strValue);
-//        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
-//        } else {
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-//            [alertView show];
-//        }
-//    }];
     
 }
 
