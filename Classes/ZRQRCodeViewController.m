@@ -644,7 +644,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     if ([self.navigationController.childViewControllers lastObject] == self) {
         [self.navigationController popViewControllerAnimated:NO];
     } else {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
