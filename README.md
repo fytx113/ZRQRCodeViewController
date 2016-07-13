@@ -21,7 +21,7 @@ A delightful QR Code Scanning framework that being compatible with iOS 7.0 and l
 $ gem install cocoapods
 ```
 
-> Cocoapods 1.0.0+ is required to build ZRQRCodeViewController 2.6
+> Cocoapods 1.0.0+ is required to build ZRQRCodeViewController 2.7
 
 #### podfile
 
@@ -31,7 +31,7 @@ To integrate ZRQRCodeViewController into your Xcode project using Cocoapods, spe
 source 'https://github.com/VictorZhang2014/ZRQRCodeViewController'
 platform :ios, '7.0'  
 
-pod 'ZRQRCodeViewController', '~>2.6'
+pod 'ZRQRCodeViewController', '~>2.7'
 ```
 Then, run the following command:
 
@@ -86,7 +86,6 @@ ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanTyp
             [alertView show];
         }
     }];
-}
 ```
 
 #### QR Code scan from the Photo Library 
@@ -161,7 +160,7 @@ ZRQRCodeViewController是一个非常好用的二维码扫描框架，兼容iOS 
 $ gem install cocoapods
 ```
 
-> Cocoapods 1.0.0+ is required to build ZRQRCodeViewController 2.6
+> Cocoapods 1.0.0+ is required to build ZRQRCodeViewController 2.7
 
 #### podfile
 
@@ -171,7 +170,7 @@ $ gem install cocoapods
 source 'https://github.com/VictorZhang2014/ZRQRCodeViewController'
 platform :ios, '7.0'  
 
-pod 'ZRQRCodeViewController', '~>2.6'
+pod 'ZRQRCodeViewController', '~>2.7'
 ```
 接着，运行以下命令
 
@@ -209,6 +208,22 @@ ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanTyp
           [alertView show];
      }
 }];
+```
+
+#### 通过摄像头扫描，扫描一次返回一个结果，会结束挡墙控制器，并且它的view可以自定义
+```objective-c
+    UIColor *white = [UIColor whiteColor];
+    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn customView:self.view navigationBarTitle:@"QR Code"];
+    qrCode.VCTintColor = white; 
+    [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
+        NSLog(@"strValue = %@ ", strValue);
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }];
 ```
 
 ####  从手机相册中选择一张图片进行扫描，

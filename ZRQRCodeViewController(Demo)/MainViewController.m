@@ -57,8 +57,9 @@
 
 - (IBAction)QRCodeScanning1:(UIButton *)sender {
     
-    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
-    qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
+    UIColor *white = [UIColor whiteColor];
+    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn customView:self.view navigationBarTitle:@"QR Code"];
+    qrCode.VCTintColor = white;
     [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
         NSLog(@"strValue = %@ ", strValue);
         if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
@@ -68,6 +69,19 @@
             [alertView show];
         }
     }];
+    
+    
+//    ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
+//    qrCode.qrCodeNavigationTitle = @"QR Code Scanning";
+//    [qrCode QRCodeScanningWithViewController:self completion:^(NSString *strValue) {
+//        NSLog(@"strValue = %@ ", strValue);
+//        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strValue]]){
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strValue]];
+//        } else {
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooooops!" message:[NSString stringWithFormat:@"The result is %@", strValue] delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+//            [alertView show];
+//        }
+//    }];
     
 }
 
