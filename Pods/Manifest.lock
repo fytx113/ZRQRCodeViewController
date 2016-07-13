@@ -1,12 +1,12 @@
 PODS:
-  - ZRQRCodeViewController (2.5)
+  - ZRQRCodeViewController (2.6)
 
 DEPENDENCIES:
-  - ZRQRCodeViewController (~> 2.5)
+  - ZRQRCodeViewController (~> 2.6)
 
 SPEC CHECKSUMS:
-  ZRQRCodeViewController: 166a5bbd6872d77bc7168f391f8e39d3b4768b97
+  ZRQRCodeViewController: 569f2849c7b96d5145c24be20623344ab517abce
 
-PODFILE CHECKSUM: 3611075e18ec6d7f875ef532e638fcd35d1c5b4c
+PODFILE CHECKSUM: 88c08f72bb299b66264fdac714b925b046bf195a
 
 COCOAPODS: 1.0.0

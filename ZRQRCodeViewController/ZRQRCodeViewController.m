@@ -586,6 +586,22 @@ static MyActionSheetCompletion actionSheetCompletion;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark  Orientations
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
 @end
 
 
