@@ -30,6 +30,10 @@ typedef NS_ENUM(NSInteger) {
 
 - (instancetype)initWithScanType:(ZRQRCodeScanType)scanType;
 
+@property (nonatomic, assign) BOOL enabledLight;
+@property (nonatomic, strong) UIColor *VCTintColor;
+- (instancetype)initWithScanType:(ZRQRCodeScanType)scanType customView:(UIView *)customView navigationBarTitle:(NSString *)title;
+
 /*
  * QR Code Scanning immediately
  * @param viewController , is current controller

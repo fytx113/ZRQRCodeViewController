@@ -20,14 +20,26 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewExample;
 
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configBasis];
     
     [self recognizationByPhotoLib];
+}
+
+- (void)configBasis
+{
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:38.0 / 255.0f green:169.0 / 255.0f blue:28.0f / 255.0f alpha:1];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 - (void)recognizationByPhotoLib

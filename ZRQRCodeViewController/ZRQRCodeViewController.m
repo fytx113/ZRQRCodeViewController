@@ -31,6 +31,8 @@ static MyActionSheetCompletion actionSheetCompletion;
 @property (nonatomic, assign) CGRect captureRectArea;
 @property (nonatomic, strong) CIDetector *detector;
 @property (nonatomic, strong) NSArray *qrCodeActionSheets;
+@property (nonatomic, strong) UIView *customView;
+@property (nonatomic, copy) NSString *navigationBarTitle;
 
 @property (nonatomic, strong) ZRAudio *playSound;
 
@@ -70,10 +72,29 @@ static MyActionSheetCompletion actionSheetCompletion;
     return UIStatusBarStyleLightContent;
 }
 
+- (void)setEnabledLight:(BOOL)enabledLight
+{
+    if (!enabledLight) {
+        _enabledLight = true;
+    } else {
+        _enabledLight = false;
+    }
+}
+
 - (instancetype)initWithScanType:(ZRQRCodeScanType)scanType
 {
     if (self = [super init]) {
         self.scanType = scanType;
+    }
+    return self;
+}
+
+- (instancetype)initWithScanType:(ZRQRCodeScanType)scanType customView:(UIView *)customView navigationBarTitle:(NSString *)title
+{
+    if (self = [super init]) {
+        self.scanType = scanType;
+        self.customView = customView;
+        self.navigationBarTitle = title;
     }
     return self;
 }
@@ -92,7 +113,11 @@ static MyActionSheetCompletion actionSheetCompletion;
         recognizeCompletion = completion;
     }
 
-    [viewController presentViewController:self animated:YES completion:nil];
+    if (self.customView) {
+        [self pushController:viewController];
+    } else {
+        [viewController presentViewController:self animated:NO completion:nil];
+    }
 }
 
 /*
@@ -267,14 +292,32 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //1.Config UI part of head and bottom
-    [self configMenus];
+    //1.Config Camera
+    [self configDevice]; 
     
-    //2.Config Camera
-    [self configDevice];
+    if (self.customView) {
+        [self.view addSubview:self.customView];
+        if (!self.enabledLight) 
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[self createLight:CGRectMake(0, 0, 28, 28)]];
+        if (self.VCTintColor)
+            self.navigationController.navigationBar.tintColor = self.VCTintColor;
+        self.navigationItem.title = self.navigationBarTitle;
+        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor whiteColor],
+                                    NSForegroundColorAttributeName, nil];
+        [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    } else {
+        //2.Config UI part of head and bottom
+        [self configMenus];
+        
+        //3.Config scanning files
+        [self configScanPic];
+    }
+}
+
+- (void)turnLight:(UIBarButtonItem *)buttonItem
+{
     
-    //3.Config scanning files
-    [self configScanPic];
 }
 
 #pragma mark - UIImagePickerControllerDelegate event
@@ -291,7 +334,58 @@ static MyActionSheetCompletion actionSheetCompletion;
     [self detectQRCodeFromImage:image];
 }
 
-#pragma mark - 1.Config UI part of head and bottom
+#pragma mark - 1.Config Camera
+- (void)configDevice
+{
+    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if(device){
+        AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+        AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
+        //Set delegate on running the main thread
+        [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        
+        session = [[AVCaptureSession alloc]init];
+        //Adopted rate in High Capture Quality
+        [session setSessionPreset:AVCaptureSessionPresetHigh];
+        
+        [session addInput:input];
+        [session addOutput:output];
+        
+        //Setup QR code encoding format
+        output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode,
+                                       AVMetadataObjectTypeEAN13Code,
+                                       AVMetadataObjectTypeEAN8Code,
+                                       AVMetadataObjectTypeCode128Code];
+        
+        AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+        layer.videoGravity = AVLayerVideoGravityResize;
+        layer.frame = self.view.layer.bounds;
+        [self.view.layer insertSublayer:layer atIndex:0];
+        
+        //Capture Area
+        CGRect rect = self.view.frame;
+        int width = rect.size.width * 0.65;
+        rect.origin.x = (rect.size.width - width) / 2;
+        rect.origin.y = (rect.size.height - width) / 2;
+        rect.size.height = width;
+        rect.size.width = width;
+        self.captureRectArea = rect;
+        
+        //Specific scanning size area
+        //        CGFloat screenHeight = self.view.frame.size.height;
+        //        CGFloat screenWidth = self.view.frame.size.width;
+        //        CGRect rectInterest = CGRectMake(rect.origin.x / screenWidth, rect.origin.y / screenHeight, rect.size.width / screenWidth, rect.size.height / screenHeight);
+        //        [output setRectOfInterest:rectInterest];
+        
+        //Starting Capture
+        [session startRunning];
+        
+        //Start capture's animation
+        [self scanningTimer];
+    }
+}
+
+#pragma mark - 2.Config UI part of head and bottom
 - (void)configMenus
 {
     //Part of Head
@@ -340,12 +434,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     CGFloat openH = 28;
     CGFloat openX = 11;
     CGFloat openY = 8;
-    UIButton *openlight = [[UIButton alloc] initWithFrame:CGRectMake(openX, openY, openW, openH)];
-    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn"] forState:UIControlStateNormal];
-    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn_selected"] forState:UIControlStateSelected];
-    [openlight addTarget:self action:@selector(torchOnOrOff) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:openlight];
-    torchBtn = openlight;
+    [bottomView addSubview:[self createLight:CGRectMake(openX, openY, openW, openH)]];
     
     UILabel *tipsLabel = [[UILabel alloc] init];
 //    [tipsLabel setText:@"Alignment"];
@@ -369,59 +458,14 @@ static MyActionSheetCompletion actionSheetCompletion;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
-#pragma mark - 2.Config Camera
-- (void)configDevice
+- (UIButton *)createLight:(CGRect)rect
 {
-    //Acquire camera device
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if(device){
-        //Create Input Stream
-        AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-        //Create Output Stream
-        AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
-        //Setup delegate on running the main thread
-        [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-        
-        //Initialized session object
-        session = [[AVCaptureSession alloc]init];
-        //Adopted rate in High Capture Quality
-        [session setSessionPreset:AVCaptureSessionPresetHigh];
-        
-        [session addInput:input];
-        [session addOutput:output];
-        
-        //Setup QR code encoding format
-        output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode,
-                                       AVMetadataObjectTypeEAN13Code,
-                                       AVMetadataObjectTypeEAN8Code,
-                                       AVMetadataObjectTypeCode128Code];
-        
-        AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-        layer.videoGravity = AVLayerVideoGravityResize;
-        layer.frame = self.view.layer.bounds;
-        [self.view.layer insertSublayer:layer atIndex:0];
-        
-        //Capture Area
-        CGRect rect = self.view.frame;
-        int width = rect.size.width * 0.65;
-        rect.origin.x = (rect.size.width - width) / 2;
-        rect.origin.y = (rect.size.height - width) / 2;
-        rect.size.height = width;
-        rect.size.width = width;
-        self.captureRectArea = rect;
-        
-         //Specific scanning size area
-//        CGFloat screenHeight = self.view.frame.size.height;
-//        CGFloat screenWidth = self.view.frame.size.width;
-//        CGRect rectInterest = CGRectMake(rect.origin.x / screenWidth, rect.origin.y / screenHeight, rect.size.width / screenWidth, rect.size.height / screenHeight);
-//        [output setRectOfInterest:rectInterest];
-        
-        //Starting Capture
-        [session startRunning];
-        
-        //Start capture's animation
-        [self scanningTimer];
-    }
+    UIButton *openlight = [[UIButton alloc] initWithFrame:rect];
+    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn"] forState:UIControlStateNormal];
+    [openlight setBackgroundImage:[self.customBundle getImageWithName:@"ZR_qrcode_torch_btn_selected"] forState:UIControlStateSelected];
+    [openlight addTarget:self action:@selector(torchOnOrOff) forControlEvents:UIControlEventTouchUpInside];
+    torchBtn = openlight;
+    return openlight;
 }
 
 #pragma mark - 3.Config scanning files
@@ -504,7 +548,7 @@ static MyActionSheetCompletion actionSheetCompletion;
         if (self.scanType == ZRQRCodeScanTypeReturn) {
             [session stopRunning];
             [self stopScanning];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissController];
         }
     }
 }
@@ -583,7 +627,25 @@ static MyActionSheetCompletion actionSheetCompletion;
 {
     [super didReceiveMemoryWarning];
     NSLog(@"ZRQRCodeController have received memory warning, so program kill this controller immediately.");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissController];
+}
+
+- (void)pushController:(UIViewController *)viewController
+{
+    if (viewController.navigationController) {
+        [viewController.navigationController pushViewController:self animated:NO];
+    } else {
+        [viewController presentViewController:self animated:nil completion:nil];
+    }
+}
+
+- (void)dismissController
+{
+    if ([self.navigationController.childViewControllers lastObject] == self) {
+        [self.navigationController popViewControllerAnimated:NO];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark  Orientations
