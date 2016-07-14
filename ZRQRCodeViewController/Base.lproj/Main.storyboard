@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="jSf-y5-Mvg" kind="relationship" relationship="rootViewController" id="xRU-JP-YiL"/>
+                        <segue destination="jSf-y5-Mvg" kind="relationship" relationship="rootViewController" id="YxM-7e-PDm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWm-lm-qYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,6 +113,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U40-al-di0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="159" y="215"/>
+        </scene>
+        <!--Tmp View Controller-->
+        <scene sceneID="UrK-4Z-3i6">
+            <objects>
+                <viewController id="DV2-7x-E6A" customClass="ZRTmpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h86-Ic-Q6t"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Tv-F0-iHR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Nr-jV-bsH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wn9-YS-3eg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjK-TC-VVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="159" y="1001"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5716B7921D37816D00731869 /* ZRTmpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5716B7911D37816D00731869 /* ZRTmpViewController.m */; };
 		571936D71D26A966007D5A09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936D61D26A966007D5A09 /* main.m */; };
 		571936DA1D26A966007D5A09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936D91D26A966007D5A09 /* AppDelegate.m */; };
 		571936DD1D26A966007D5A09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936DC1D26A966007D5A09 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		05B1C336887F663BE0024B0F /* libPods-ZRQRCodeViewController(Demo).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZRQRCodeViewController(Demo).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		329CD3F334B85A6DB248B909 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZRQRCodeViewController(Demo).debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZRQRCodeViewController(Demo)/Pods-ZRQRCodeViewController(Demo).debug.xcconfig"; sourceTree = "<group>"; };
+		5716B7901D37816D00731869 /* ZRTmpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRTmpViewController.h; sourceTree = "<group>"; };
+		5716B7911D37816D00731869 /* ZRTmpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRTmpViewController.m; sourceTree = "<group>"; };
 		571936D21D26A966007D5A09 /* ZRQRCodeViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZRQRCodeViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571936D61D26A966007D5A09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		571936D81D26A966007D5A09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				57F8AF661D30F918007D2F52 /* ZRAudio.h */,
 				57F8AF671D30F918007D2F52 /* ZRAudio.m */,
 				57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */,
+				5716B7901D37816D00731869 /* ZRTmpViewController.h */,
+				5716B7911D37816D00731869 /* ZRTmpViewController.m */,
 				571936DE1D26A966007D5A09 /* Main.storyboard */,
 				571936E11D26A966007D5A09 /* Assets.xcassets */,
 				571936E31D26A966007D5A09 /* LaunchScreen.storyboard */,
@@ -333,6 +338,7 @@
 			files = (
 				57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */,
 				571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */,
+				5716B7921D37816D00731869 /* ZRTmpViewController.m in Sources */,
 				571936DD1D26A966007D5A09 /* ViewController.m in Sources */,
 				571936DA1D26A966007D5A09 /* AppDelegate.m in Sources */,
 				571936D71D26A966007D5A09 /* main.m in Sources */,

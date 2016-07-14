@@ -313,7 +313,23 @@ static MyActionSheetCompletion actionSheetCompletion;
         //3.Config scanning files
         [self configScanPic];
     }
-} 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self continueScanning];
+    [session startRunning];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self pauseScanning];
+    [session stopRunning];
+}
 
 #pragma mark - UIImagePickerControllerDelegate event
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
