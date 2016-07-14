@@ -319,15 +319,17 @@ static MyActionSheetCompletion actionSheetCompletion;
 {
     [super viewWillAppear:animated];
     
-    [self continueScanning];
-    [session startRunning];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self scanningTimer];
+        [session startRunning];
+    });
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [self pauseScanning];
+    [self stopScanning];
     [session stopRunning];
 }
 
@@ -390,9 +392,6 @@ static MyActionSheetCompletion actionSheetCompletion;
         
         //Starting Capture
         [session startRunning];
-        
-        //Start capture's animation
-        [self scanningTimer];
     }
 }
 
@@ -497,7 +496,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 #pragma mark - Scanning Timer
 - (void)scanningTimer
 {
-    if(!self.scanTimer){
+    if(!self.scanTimer && !self.customView){
         self.scanTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(scanning) userInfo:nil repeats:YES];
     }
 }
@@ -572,18 +571,12 @@ static MyActionSheetCompletion actionSheetCompletion;
         if (recognizeCompletion) {
             recognizeCompletion(svalue);
         }
+        [session stopRunning];
         if (self.scanType == ZRQRCodeScanTypeReturn) {
-            [session stopRunning];
             [self stopScanning];
             [self dismissController];
         } else if (self.scanType == ZRQRCodeScanTypeContinuation) {
-            [session stopRunning];
             [self pauseScanning];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [session startRunning];
-                [self continueScanning];
-            });
         }
     }
 }
@@ -623,7 +616,16 @@ static MyActionSheetCompletion actionSheetCompletion;
     }
 }
 
-- (void)dealloc{
+- (void)dealloc{ 
+    
+    if (self.detector) {
+        self.detector = nil;
+    }
+
+    if (session) {
+        session = nil;
+    }
+    
     if (self.scanTimer) {
         [self.scanTimer invalidate];
         self.scanTimer = nil;
