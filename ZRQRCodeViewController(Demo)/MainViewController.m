@@ -25,7 +25,7 @@
     [super viewDidLoad];
     [self configBasis];
     
-    [self recognizeByPhotoLib];
+    [self recognizationByLongPressImage];
 }
 
 - (void)configBasis
@@ -39,7 +39,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
-- (void)recognizeByPhotoLib
+- (void)recognizationByLongPressImage
 {
     ZRQRCodeViewController *qrCode = [[ZRQRCodeViewController alloc] initWithScanType:ZRQRCodeScanTypeReturn];
     qrCode.cancelButton = @"Cancel";

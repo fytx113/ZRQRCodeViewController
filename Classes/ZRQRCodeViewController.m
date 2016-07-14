@@ -313,12 +313,7 @@ static MyActionSheetCompletion actionSheetCompletion;
         //3.Config scanning files
         [self configScanPic];
     }
-}
-
-- (void)turnLight:(UIBarButtonItem *)buttonItem
-{
-    
-}
+} 
 
 #pragma mark - UIImagePickerControllerDelegate event
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -511,8 +506,23 @@ static MyActionSheetCompletion actionSheetCompletion;
 #pragma mark Stop Scanning
 - (void)stopScanning
 {
-    [self.scanTimer invalidate];
-    self.scanTimer = nil;
+    if (!self.customView) {
+        [self.scanTimer invalidate];
+    }
+}
+
+- (void)pauseScanning
+{
+    if (!self.customView) {
+        [self.scanTimer setFireDate:[NSDate distantFuture]];
+    }
+}
+
+- (void)continueScanning
+{
+    if (!self.customView) {
+        [self.scanTimer setFireDate:[NSDate date]];
+    }
 }
 
 #pragma mark Close Scanning
@@ -537,6 +547,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     [device unlockForConfiguration];
 }
 
+#pragma mark - AVCaptureMetadataOutputObjectsDelegate event
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
     if (metadataObjects.count>0) {
         [self playSoundWhenScanSuccess];
@@ -549,6 +560,14 @@ static MyActionSheetCompletion actionSheetCompletion;
             [session stopRunning];
             [self stopScanning];
             [self dismissController];
+        } else if (self.scanType == ZRQRCodeScanTypeContinuation) {
+            [session stopRunning];
+            [self pauseScanning];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [session startRunning];
+                [self continueScanning];
+            });
         }
     }
 }
@@ -589,7 +608,10 @@ static MyActionSheetCompletion actionSheetCompletion;
 }
 
 - (void)dealloc{
-    [self stopScanning];
+    if (self.scanTimer) {
+        [self.scanTimer invalidate];
+        self.scanTimer = nil;
+    }
 
     if (recognizeCompletion) {
         recognizeCompletion = nil;
