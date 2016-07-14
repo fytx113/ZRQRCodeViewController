@@ -313,7 +313,29 @@ static MyActionSheetCompletion actionSheetCompletion;
         //3.Config scanning files
         [self configScanPic];
     }
-} 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self scanningTimer];
+        if (![session isRunning]) {
+            [session startRunning];
+        }
+    });
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self stopScanning];
+    if ([session isRunning]) {
+        [session stopRunning];
+    }
+}
 
 #pragma mark - UIImagePickerControllerDelegate event
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -374,9 +396,6 @@ static MyActionSheetCompletion actionSheetCompletion;
         
         //Starting Capture
         [session startRunning];
-        
-        //Start capture's animation
-        [self scanningTimer];
     }
 }
 
@@ -481,7 +500,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 #pragma mark - Scanning Timer
 - (void)scanningTimer
 {
-    if(!self.scanTimer){
+    if(!self.scanTimer && !self.customView){
         self.scanTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(scanning) userInfo:nil repeats:YES];
     }
 }
@@ -549,22 +568,20 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate event
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    if (metadataObjects.count>0) {
+    if (metadataObjects.count > 0) {
         [self playSoundWhenScanSuccess];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         NSString *svalue = metadataObject.stringValue;
         if (recognizeCompletion) {
             recognizeCompletion(svalue);
         }
+        [session stopRunning];
         if (self.scanType == ZRQRCodeScanTypeReturn) {
-            [session stopRunning];
             [self stopScanning];
             [self dismissController];
         } else if (self.scanType == ZRQRCodeScanTypeContinuation) {
-            [session stopRunning];
             [self pauseScanning];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [session startRunning];
                 [self continueScanning];
             });
@@ -607,7 +624,16 @@ static MyActionSheetCompletion actionSheetCompletion;
     }
 }
 
-- (void)dealloc{
+- (void)dealloc{ 
+    
+    if (self.detector) {
+        self.detector = nil;
+    }
+
+    if (session) {
+        session = nil;
+    }
+    
     if (self.scanTimer) {
         [self.scanTimer invalidate];
         self.scanTimer = nil;
