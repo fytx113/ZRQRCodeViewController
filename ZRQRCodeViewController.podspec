@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name         = 'ZRQRCodeViewController'
-spec.version      = '2.6.4'
+spec.version      = '2.6.5'
 spec.license      = "MIT"
 spec.homepage     = 'https://github.com/VictorZhang2014/ZRQRCodeViewController.git'
 spec.author       = { "Victor Zhang" => "victorzhangq@gmail.com" }

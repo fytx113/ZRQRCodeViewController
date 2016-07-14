@@ -321,7 +321,9 @@ static MyActionSheetCompletion actionSheetCompletion;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self scanningTimer];
-        [session startRunning];
+        if (![session isRunning]) {
+            [session startRunning];
+        }
     });
 }
 
@@ -330,7 +332,9 @@ static MyActionSheetCompletion actionSheetCompletion;
     [super viewWillDisappear:animated];
     
     [self stopScanning];
-    [session stopRunning];
+    if ([session isRunning]) {
+        [session stopRunning];
+    }
 }
 
 #pragma mark - UIImagePickerControllerDelegate event
@@ -564,7 +568,7 @@ static MyActionSheetCompletion actionSheetCompletion;
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate event
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    if (metadataObjects.count>0) {
+    if (metadataObjects.count > 0) {
         [self playSoundWhenScanSuccess];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         NSString *svalue = metadataObject.stringValue;
@@ -577,6 +581,10 @@ static MyActionSheetCompletion actionSheetCompletion;
             [self dismissController];
         } else if (self.scanType == ZRQRCodeScanTypeContinuation) {
             [self pauseScanning];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [session startRunning];
+                [self continueScanning];
+            });
         }
     }
 }
