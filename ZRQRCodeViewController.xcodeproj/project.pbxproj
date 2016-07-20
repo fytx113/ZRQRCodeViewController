@@ -18,6 +18,9 @@
 		571936F21D28DB7E007D5A09 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936F11D28DB7E007D5A09 /* ZRAlertController.m */; };
 		57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */ = {isa = PBXBuildFile; fileRef = 57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */; };
 		578858A51D33408B0050A443 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578858A41D33408B0050A443 /* WebKit.framework */; };
+		57A8CDF81D3F73A400A3DA5E /* ZRQRCodeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 571936EC1D26A996007D5A09 /* ZRQRCodeViewController.h */; };
+		57A8CDF91D3F73A400A3DA5E /* ZRAlertController.h in Sources */ = {isa = PBXBuildFile; fileRef = 571936F01D28DB7E007D5A09 /* ZRAlertController.h */; };
+		57A8CDFA1D3F73A400A3DA5E /* ZRAudio.h in Sources */ = {isa = PBXBuildFile; fileRef = 57F8AF661D30F918007D2F52 /* ZRAudio.h */; };
 		57E7D24A1D35063B008A6FE2 /* ZRQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57E7D2491D35063B008A6FE2 /* ZRQRCode.bundle */; };
 		57F528AB1D29453F00DB8158 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528AA1D29453F00DB8158 /* main.m */; };
 		57F528AE1D29453F00DB8158 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528AD1D29453F00DB8158 /* AppDelegate.m */; };
@@ -337,6 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A8CDF81D3F73A400A3DA5E /* ZRQRCodeViewController.h in Sources */,
+				57A8CDF91D3F73A400A3DA5E /* ZRAlertController.h in Sources */,
+				57A8CDFA1D3F73A400A3DA5E /* ZRAudio.h in Sources */,
 				57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */,
 				57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */,
 				571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */,

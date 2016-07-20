@@ -10,7 +10,7 @@ spec.requires_arc = true
 spec.platform = :ios
 spec.ios.deployment_target = '7.0'
 
-spec.public_header_files = 'Classes/ZRQRCodeController.h'
+spec.public_header_files = 'Classes/*.{h}'
 spec.source_files = 'Classes/*.{h,m}'
 spec.resource = 'Classes/ZRQRCode.bundle'
 spec.frameworks    = 'UIKit', 'WebKit','AVFoundation','AudioToolbox'
