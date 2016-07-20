@@ -10,18 +10,18 @@
 		07C679F3806574717220AB597883C12C /* ZRAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 7779B80109C77EB4AFB834EEBB5B6DF4 /* ZRAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EF8E0E2E31836D260AFD32E492CF713 /* ZRAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A34CCE1669B11C112901BF33F0B66D6 /* ZRAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1629E37BAB3D1AB529C4B3A476D668DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98001FF67728E9C67462BA95E3029C5B /* Foundation.framework */; };
-		19D8F7D482EE32E72F42EECBE26AD850 /* ZRQRCodeViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F71C25E4B052F72B4BE25EDD06FD5A7 /* ZRQRCodeViewController-dummy.m */; };
 		1EF058A1F2D24575A22D5BE7A601D7AE /* ZRQRCodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = DBDE355922360DC43725DC3F1105E15A /* ZRQRCodeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38C989532E65EC19E8CEE009F2F423A1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404CDF47908D5584A86E6D10955A9DD5 /* WebKit.framework */; };
 		3BF85792D12A4F1AE550E54A1E633803 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98001FF67728E9C67462BA95E3029C5B /* Foundation.framework */; };
-		3E2EF147C965533A70AF9FA0842686C7 /* ZRAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F54D0CB58157EC13285785F4308F9C15 /* ZRAudio.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4895D82B1A4C414E5A26F803E89A1140 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C982D9794AAA0AD8EC49E709AC656E /* ZRAlertController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		698BD61A5D8EE9EC9D23A758B273EE1B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CFB946FB908FD0195C0E99E0F9F317 /* AVFoundation.framework */; };
 		730C5746F44EBF9541500BEBE453C60C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EF58147C0057F3880F58DA85D37756 /* UIKit.framework */; };
-		9562D5413DDEF9624C612D7CBB031E08 /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE403C74E6881EE79AB8A34CE6409C4 /* ZRQRCodeViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9A3223DD878DAD7F52BEEF290BADC8AA /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C982D9794AAA0AD8EC49E709AC656E /* ZRAlertController.m */; };
+		A109351494AE5BAC8D12C9602A57F70B /* ZRAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F54D0CB58157EC13285785F4308F9C15 /* ZRAudio.m */; };
 		A2E8FC123E236B16298E984968216F98 /* ZRQRCodeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 99795D10CCE5906156F881E5B3B67F17 /* ZRQRCodeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4A27B6AD581924868E26D4220B744FF /* Pods-ZRQRCodeViewController(Demo)-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A9C40AB426FB3EA219AF45451789F5 /* Pods-ZRQRCodeViewController(Demo)-dummy.m */; };
+		EBC510184D4DA1D171CC35F659653903 /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE403C74E6881EE79AB8A34CE6409C4 /* ZRQRCodeViewController.m */; };
 		F24700A7293C14567E25C12680EF3070 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C055794C515200F5EFB93277E2F43016 /* AudioToolbox.framework */; };
+		FFBAC2D28D5071FE4AC1CB665D7522E6 /* ZRQRCodeViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F71C25E4B052F72B4BE25EDD06FD5A7 /* ZRQRCodeViewController-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,7 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3238AFF5BBA37678E3FA42AA2495B297 /* Build configuration list for PBXNativeTarget "ZRQRCodeViewController" */;
 			buildPhases = (
-				CE8A1F97176D4C9CA75F4426299CFDCA /* Sources */,
+				FA72E5C09808272128ED65698E6258E8 /* Sources */,
 				C3B0FEB755E61B947E280D7A97544077 /* Frameworks */,
 				FEBC35597672D6957E33355A14A6BA38 /* Headers */,
 			);
@@ -272,22 +272,22 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE8A1F97176D4C9CA75F4426299CFDCA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4895D82B1A4C414E5A26F803E89A1140 /* ZRAlertController.m in Sources */,
-				3E2EF147C965533A70AF9FA0842686C7 /* ZRAudio.m in Sources */,
-				19D8F7D482EE32E72F42EECBE26AD850 /* ZRQRCodeViewController-dummy.m in Sources */,
-				9562D5413DDEF9624C612D7CBB031E08 /* ZRQRCodeViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ED9F4637BADD90AD48EA60E2180DB877 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E4A27B6AD581924868E26D4220B744FF /* Pods-ZRQRCodeViewController(Demo)-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA72E5C09808272128ED65698E6258E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A3223DD878DAD7F52BEEF290BADC8AA /* ZRAlertController.m in Sources */,
+				A109351494AE5BAC8D12C9602A57F70B /* ZRAudio.m in Sources */,
+				FFBAC2D28D5071FE4AC1CB665D7522E6 /* ZRQRCodeViewController-dummy.m in Sources */,
+				EBC510184D4DA1D171CC35F659653903 /* ZRQRCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +345,27 @@
 			};
 			name = Debug;
 		};
+		49128E671ECBA14B8383223FE77E773C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8013B4021BC3328D0D09FBF6CDEFFA27 /* ZRQRCodeViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZRQRCodeViewController/ZRQRCodeViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		834E162D4AE9ACE84CE9FCFDE5EB3718 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA58E0D7688074CEFF8E93A10F2831 /* Pods-ZRQRCodeViewController(Demo).debug.xcconfig */;
@@ -366,17 +387,17 @@
 			};
 			name = Debug;
 		};
-		E287AB7801AA4BFA689B1B9F7C818BE5 /* Debug */ = {
+		A80233B449D07F711D49192ED9B3E2FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8013B4021BC3328D0D09FBF6CDEFFA27 /* ZRQRCodeViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ZRQRCodeViewController/ZRQRCodeViewController-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -385,7 +406,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		F0FC1CA696309C9E04547FD2783950BD /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -446,27 +467,6 @@
 			};
 			name = Release;
 		};
-		F9EC7B6619EB4A96C1FC51F6D2B1E277 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8013B4021BC3328D0D09FBF6CDEFFA27 /* ZRQRCodeViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ZRQRCodeViewController/ZRQRCodeViewController-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -482,8 +482,8 @@
 		3238AFF5BBA37678E3FA42AA2495B297 /* Build configuration list for PBXNativeTarget "ZRQRCodeViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E287AB7801AA4BFA689B1B9F7C818BE5 /* Debug */,
-				F9EC7B6619EB4A96C1FC51F6D2B1E277 /* Release */,
+				49128E671ECBA14B8383223FE77E773C /* Debug */,
+				A80233B449D07F711D49192ED9B3E2FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
