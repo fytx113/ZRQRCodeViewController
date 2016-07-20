@@ -13,6 +13,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <WebKit/WebKit.h>
 
-#import "ZRQRCodeViewController.h"
-#import "ZRAlertController.h"
-#import "ZRAudio.h"
+#ifndef _ZRQRCodeController_
+    #define _ZRQRCodeController_
+
+    #import "ZRAlertController.h"
+    #import "ZRQRCodeViewController.h"
+    #import "ZRAudio.h"
+
+#endif
