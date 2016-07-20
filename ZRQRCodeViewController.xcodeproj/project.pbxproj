@@ -16,6 +16,7 @@
 		571936E51D26A966007D5A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571936E31D26A966007D5A09 /* LaunchScreen.storyboard */; };
 		571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936ED1D26A996007D5A09 /* ZRQRCodeViewController.m */; };
 		571936F21D28DB7E007D5A09 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936F11D28DB7E007D5A09 /* ZRAlertController.m */; };
+		57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */ = {isa = PBXBuildFile; fileRef = 57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */; };
 		578858A51D33408B0050A443 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578858A41D33408B0050A443 /* WebKit.framework */; };
 		57E7D24A1D35063B008A6FE2 /* ZRQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57E7D2491D35063B008A6FE2 /* ZRQRCode.bundle */; };
 		57F528AB1D29453F00DB8158 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F528AA1D29453F00DB8158 /* main.m */; };
@@ -336,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */,
 				57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */,
 				571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */,
 				5716B7921D37816D00731869 /* ZRTmpViewController.m in Sources */,
