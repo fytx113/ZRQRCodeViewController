@@ -292,6 +292,8 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _playSound = [[ZRAudio alloc] init];
+    
     //1.Config Camera
     [self configDevice]; 
     
@@ -572,9 +574,6 @@ static MyActionSheetCompletion actionSheetCompletion;
         [self playSoundWhenScanSuccess];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         NSString *svalue = metadataObject.stringValue;
-        if (recognizeCompletion) {
-            recognizeCompletion(svalue);
-        }
         [session stopRunning];
         if (self.scanType == ZRQRCodeScanTypeReturn) {
             [self stopScanning];
@@ -585,6 +584,9 @@ static MyActionSheetCompletion actionSheetCompletion;
                 [session startRunning];
                 [self continueScanning];
             });
+        }
+        if (recognizeCompletion) {
+            recognizeCompletion(svalue);
         }
     }
 }
@@ -624,15 +626,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     }
 }
 
-- (void)dealloc{ 
-    
-    if (self.detector) {
-        self.detector = nil;
-    }
-
-    if (session) {
-        session = nil;
-    }
+- (void)dealloc{
     
     if (self.scanTimer) {
         [self.scanTimer invalidate];
@@ -653,14 +647,6 @@ static MyActionSheetCompletion actionSheetCompletion;
 /*
  * Create Or Dispose Sounds after scanning
  **/
-- (ZRAudio *)playSound
-{
-    if (!_playSound) {
-        _playSound = [[ZRAudio alloc] init];
-    }
-    return _playSound;
-}
-
 - (void)playSoundWhenScanSuccess
 {
     [self.playSound playSoundWhenScanSuccess];
