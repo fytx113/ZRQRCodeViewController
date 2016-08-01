@@ -52,7 +52,9 @@
 
 - (void)disposeSound
 {
-    AudioServicesDisposeSystemSoundID(self.systemSoundId);
+    if (self.systemSoundId) {
+        AudioServicesDisposeSystemSoundID(self.systemSoundId);
+    }
 }
 
 @end

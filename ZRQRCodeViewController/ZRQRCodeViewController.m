@@ -292,6 +292,8 @@ static MyActionSheetCompletion actionSheetCompletion;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _playSound = [[ZRAudio alloc] init];
+    
     //1.Config Camera
     [self configDevice]; 
     
@@ -624,15 +626,7 @@ static MyActionSheetCompletion actionSheetCompletion;
     }
 }
 
-- (void)dealloc{ 
-    
-    if (self.detector) {
-        self.detector = nil;
-    }
-
-    if (session) {
-        session = nil;
-    }
+- (void)dealloc{
     
     if (self.scanTimer) {
         [self.scanTimer invalidate];
@@ -653,14 +647,6 @@ static MyActionSheetCompletion actionSheetCompletion;
 /*
  * Create Or Dispose Sounds after scanning
  **/
-- (ZRAudio *)playSound
-{
-    if (!_playSound) {
-        _playSound = [[ZRAudio alloc] init];
-    }
-    return _playSound;
-}
-
 - (void)playSoundWhenScanSuccess
 {
     [self.playSound playSoundWhenScanSuccess];
