@@ -574,9 +574,6 @@ static MyActionSheetCompletion actionSheetCompletion;
         [self playSoundWhenScanSuccess];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         NSString *svalue = metadataObject.stringValue;
-        if (recognizeCompletion) {
-            recognizeCompletion(svalue);
-        }
         [session stopRunning];
         if (self.scanType == ZRQRCodeScanTypeReturn) {
             [self stopScanning];
@@ -587,6 +584,9 @@ static MyActionSheetCompletion actionSheetCompletion;
                 [session startRunning];
                 [self continueScanning];
             });
+        }
+        if (recognizeCompletion) {
+            recognizeCompletion(svalue);
         }
     }
 }
