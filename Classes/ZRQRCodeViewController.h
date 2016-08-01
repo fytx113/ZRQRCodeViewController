@@ -12,8 +12,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef void(^MyBlockCompletion)(NSString * strValue);
 typedef void(^MyActionSheetCompletion)(int index, NSString * value);
 
@@ -74,4 +72,4 @@ typedef NS_ENUM(NSInteger) {
 
 @end
 
-NS_ASSUME_NONNULL_END
+
