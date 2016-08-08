@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger){
     return _delegateController;
 }
 
-- (void)alertShow:(UIViewController *)controller title:(NSString *)title message:(NSString *)message okayButton:(NSString *)okay completion:(nonnull void (^)())completion
+- (void)alertShow:(UIViewController *)controller title:(NSString * _Nullable)title message:(NSString *)message okayButton:(NSString *)okay completion:(void (^ _Nullable)())completion
 {
     completionBlock = completion;
     if (kiOS8) {
@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger){
     }
 }
 
-- (void)alertShow:(UIViewController *)controller title:(NSString *)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay okayHandler:(AlertBlock)okayHandler cancelHandler:(AlertBlock)cancelHandler
+- (void)alertShow:(UIViewController *)controller title:(NSString * _Nullable)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay okayHandler:(AlertBlock)okayHandler cancelHandler:(AlertBlock)cancelHandler
 {
     okayBlock = okayHandler;
     cancelBlock = cancelHandler;
@@ -172,7 +172,7 @@ typedef NS_ENUM(NSInteger){
     }
 }
 
-- (void)alertShow:(UIViewController *)controller title:(NSString *)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay alertStyle:(ZRAlertStyle)style placeHolder:(NSString *)placeHolder okayHandler:(AlertBlock1)okayHandler cancelHandler:(AlertBlock1)cancelHandler
+- (void)alertShow:(UIViewController *)controller title:(NSString * _Nullable)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay alertStyle:(ZRAlertStyle)style placeHolder:(NSString *)placeHolder okayHandler:(AlertBlock1)okayHandler cancelHandler:(AlertBlock1)cancelHandler
 {
     okayBlock1 = okayHandler;
     cancelBlock1 = cancelHandler;
@@ -223,7 +223,7 @@ typedef NS_ENUM(NSInteger){
     }
 }
 
-- (void)alertShow:(UIViewController *)controller title:(NSString *)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay alertStyle:(ZRAlertStyle)style placeHolder1:(NSString *)placeHolder1 placeHolder2:(NSString *)placeHolder2 sureHandler:(AlertBlock2)okayHandler abolishHandler:(AlertBlock2)cancelHandler
+- (void)alertShow:(UIViewController *)controller title:(NSString * _Nullable)title message:(NSString *)message cancelButton:(NSString *)cancel okayButton:(NSString *)okay alertStyle:(ZRAlertStyle)style placeHolder1:(NSString *)placeHolder1 placeHolder2:(NSString *)placeHolder2 sureHandler:(AlertBlock2)okayHandler abolishHandler:(AlertBlock2)cancelHandler
 {
     okayBlock2 = okayHandler;
     cancelBlock2 = cancelHandler;
