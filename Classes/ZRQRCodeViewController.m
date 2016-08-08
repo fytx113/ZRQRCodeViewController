@@ -641,6 +641,10 @@ static MyActionSheetCompletion actionSheetCompletion;
         actionSheetCompletion = nil;
     }
     
+    if (self.customView) {
+        self.customView = nil;
+    }
+    
     [self disposeSound];
 }
 
