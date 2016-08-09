@@ -13,11 +13,14 @@
 #import "ViewController.h"
 #import "ZRQRCodeController.h"
 #import "ZRTmpViewController.h"
+#import "ZRQRCodeScanView.h"
 
 @interface ViewController ()
 - (IBAction)scanningQRCode1:(UIButton *)sender;
 - (IBAction)scanningQRCode:(UIButton *)sender;
 - (IBAction)recognizationByPhotoLibrary:(UIButton *)sender;
+- (IBAction)scanningQRCodeByCustomView:(id)sender;
+
 
 @property (nonatomic, strong) ZRTmpViewController *tmpViewController;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewExample;
@@ -112,6 +115,10 @@
             }
         }];
     }];
+}
+
+- (IBAction)scanningQRCodeByCustomView:(id)sender {
+    [[[ZRQRCodeScanView alloc] init] openQRCodeScan:self];
 }
 
 

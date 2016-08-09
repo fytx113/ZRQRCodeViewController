@@ -136,6 +136,17 @@ qrCode.saveImaegText = savedImageText;
 ```
 
 
+### QR Code Scan by a custom View, There is a sample view name is ZRQRCodeScanView and use of snippet code below. There is a whole code in this project 
+
+```
+//1.You just import this header file
+#import "ZRQRCodeScanView.h"
+
+//2.Easy to call
+[[[ZRQRCodeScanView alloc] init] openQRCodeScan:self];
+```
+
+
 
 
 
@@ -272,3 +283,12 @@ qrCode.saveImaegText = savedImageText;
 }];
 ```
 
+
+### 二维码扫描可以通过自定View， 这里有一个样例，文件名是ZRQRCodeScanView，以下是使用代码，完整的代码请试运行该项目
+```
+//1.导入头文件
+#import "ZRQRCodeScanView.h"
+
+//2.调用超简单
+[[[ZRQRCodeScanView alloc] init] openQRCodeScan:self];
+```

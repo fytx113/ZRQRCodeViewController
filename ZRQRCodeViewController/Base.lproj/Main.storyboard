@@ -105,7 +105,13 @@
                             <constraint firstItem="TlA-2U-eWB" firstAttribute="top" secondItem="N55-ks-isC" secondAttribute="bottom" constant="20" id="xhw-kN-3kL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="QR Code" id="Bnd-2c-9D3"/>
+                    <navigationItem key="navigationItem" title="QR Code" id="Bnd-2c-9D3">
+                        <barButtonItem key="rightBarButtonItem" title="QRCodeByCustomView" id="OQX-kj-oek">
+                            <connections>
+                                <action selector="scanningQRCodeByCustomView:" destination="jSf-y5-Mvg" id="Vq3-Le-9OP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageViewExample" destination="pi2-55-96H" id="a7k-SL-bAs"/>
                     </connections>

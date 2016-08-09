@@ -17,6 +17,7 @@
 		571936EE1D26A996007D5A09 /* ZRQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936ED1D26A996007D5A09 /* ZRQRCodeViewController.m */; };
 		571936F21D28DB7E007D5A09 /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571936F11D28DB7E007D5A09 /* ZRAlertController.m */; };
 		57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */ = {isa = PBXBuildFile; fileRef = 57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */; };
+		5774401B1D599CB400293E80 /* ZRQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5774401A1D599CB400293E80 /* ZRQRCodeScanView.m */; };
 		578858A51D33408B0050A443 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578858A41D33408B0050A443 /* WebKit.framework */; };
 		57A8CDF81D3F73A400A3DA5E /* ZRQRCodeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 571936EC1D26A996007D5A09 /* ZRQRCodeViewController.h */; };
 		57A8CDF91D3F73A400A3DA5E /* ZRAlertController.h in Sources */ = {isa = PBXBuildFile; fileRef = 571936F01D28DB7E007D5A09 /* ZRAlertController.h */; };
@@ -51,6 +52,8 @@
 		571936ED1D26A996007D5A09 /* ZRQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRQRCodeViewController.m; sourceTree = "<group>"; };
 		571936F01D28DB7E007D5A09 /* ZRAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAlertController.h; sourceTree = "<group>"; };
 		571936F11D28DB7E007D5A09 /* ZRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAlertController.m; sourceTree = "<group>"; };
+		577440191D599CB400293E80 /* ZRQRCodeScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRQRCodeScanView.h; sourceTree = "<group>"; };
+		5774401A1D599CB400293E80 /* ZRQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRQRCodeScanView.m; sourceTree = "<group>"; };
 		578858A41D33408B0050A443 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		57E7D2481D35029A008A6FE2 /* ZRQRCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRQRCodeController.h; sourceTree = "<group>"; };
 		57E7D2491D35063B008A6FE2 /* ZRQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZRQRCode.bundle; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				571936D91D26A966007D5A09 /* AppDelegate.m */,
 				571936DB1D26A966007D5A09 /* ViewController.h */,
 				571936DC1D26A966007D5A09 /* ViewController.m */,
+				577440191D599CB400293E80 /* ZRQRCodeScanView.h */,
+				5774401A1D599CB400293E80 /* ZRQRCodeScanView.m */,
 				571936EC1D26A996007D5A09 /* ZRQRCodeViewController.h */,
 				571936ED1D26A996007D5A09 /* ZRQRCodeViewController.m */,
 				571936F01D28DB7E007D5A09 /* ZRAlertController.h */,
@@ -342,6 +347,7 @@
 			files = (
 				57A8CDF81D3F73A400A3DA5E /* ZRQRCodeViewController.h in Sources */,
 				57A8CDF91D3F73A400A3DA5E /* ZRAlertController.h in Sources */,
+				5774401B1D599CB400293E80 /* ZRQRCodeScanView.m in Sources */,
 				57A8CDFA1D3F73A400A3DA5E /* ZRAudio.h in Sources */,
 				57338DF91D3F70690024F0F3 /* ZRQRCodeController.h in Sources */,
 				57F8AF681D30F918007D2F52 /* ZRAudio.m in Sources */,
